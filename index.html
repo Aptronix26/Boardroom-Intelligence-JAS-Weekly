@@ -1,0 +1,674 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Aptronix Retail Intelligence OS JAS Wk5 Mobile Optimised</title><style>
+:root{--navy:#062a47;--blue:#1f66c1;--line:#d9e3ee;--text:#10233a;--green:#178c43;--red:#df2525}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#eef3f8;color:var(--text)}.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:linear-gradient(#052b49,#061f36);color:white;padding:16px 14px;position:sticky;top:0;height:100vh}.brand{font-size:25px;font-weight:800}.brand small{display:block;font-size:11px;margin-top:4px}.menu{display:grid;gap:9px;margin-top:28px}.menu button{border:0;background:transparent;color:white;text-align:left;padding:12px;border-radius:8px;font-size:14px}.menu button.active{background:#1467b7}.divider{height:1px;background:#ffffff33;margin:24px 0}.qf{border:1px solid #ffffff33;border-radius:8px;padding:10px;margin-bottom:8px;font-size:12px}.qf b{display:block;font-size:11px}.side-note{font-size:11px;line-height:1.5;opacity:.8;margin-top:28px}
+.main{padding:0 14px 14px}.top{min-height:74px;background:white;margin:0 -14px 14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.top h1{font-size:22px;margin:0}.top p{font-size:12px;margin:3px 0;color:#36527a}.controls{display:flex;gap:9px;align-items:center}.box{border:1px solid var(--line);padding:10px 12px;border-radius:8px;background:#fff;font-size:12px}.updated{font-size:11px;text-align:right}
+.page{display:none}.page.active{display:block}.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.kpi{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:105px}.kpi .label{font-size:11px;font-weight:700}.kpi .value{font-size:20px;font-weight:800;margin:8px 0}.kpi .sub{font-size:11px;color:#36527a}.up{color:var(--green);font-weight:700}.down{color:var(--red);font-weight:700}
+.row3{display:grid;grid-template-columns:1.05fr 1fr 1.15fr;gap:10px;margin-top:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:300px}.card h3{margin:0 0 12px;font-size:15px}
+.donut-grid{display:grid;grid-template-columns:210px 1fr;align-items:center}.donut{width:185px;height:185px;border-radius:50%;background:conic-gradient(#1f66c1 0.0deg 165.7deg, #2f9b4f 165.7deg 244.5deg, #7650a8 244.5deg 303.7deg, #e98422 303.7deg 321.4deg, #2aa6b5 321.4deg 360.0deg);position:relative;margin:auto}.donut:after{content:'';position:absolute;inset:47px;background:white;border-radius:50%}.center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:2;font-weight:800}.center small{display:block}.legend{display:grid;gap:9px;font-size:12px}.li{display:grid;grid-template-columns:10px 1fr auto auto;gap:8px}.dot{width:9px;height:9px;border-radius:50%}
+.trend,.waterfall{width:100%;height:250px}.trend .line1{fill:none;stroke:#1f66c1;stroke-width:3}.trend text,.waterfall text{font-size:10px;fill:#29415f}.grid{stroke:#e5ebf1}
+.regions{display:grid;grid-template-columns:1.1fr 1fr;gap:12px}.india-real-wrap{height:230px;border-radius:12px;background:linear-gradient(145deg,#eef5fc,#dbe9f8);position:relative;overflow:hidden}.india-map-real{position:absolute;inset:8px 22px 8px 22px;width:calc(100% - 44px);height:calc(100% - 16px)}.india-country{fill:#d8e8f8;stroke:#7fa8d2;stroke-width:3;stroke-linejoin:round}.india-country.island{fill:#cfe2f6}.india-pin{position:absolute;transform:translate(-50%,-50%);padding:4px 6px;border-radius:999px;background:#fff;border:2px solid #2f75c8;box-shadow:0 2px 8px #1f5d8f22;text-align:center;font-size:9px;font-weight:700;color:#153b63;white-space:nowrap}.india-pin small{display:block;font-size:7px;color:#5d7188;font-weight:600}.rlist{display:grid;gap:7px;font-size:11px}.rline{display:grid;grid-template-columns:1fr auto auto;gap:8px}
+.tables{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:10px;margin-top:12px}.tc{background:white;border:1px solid var(--line);border-radius:12px;padding:12px}.tt{display:flex;justify-content:space-between}.tt h3{font-size:14px;margin:0 0 8px}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:8px 5px;border-bottom:1px solid #edf1f5;text-align:left}.mini{width:44px;height:8px;background:#edf1f5;border-radius:99px;overflow:hidden}.mini span{display:block;height:100%;background:#25a354}.mini.blue span{background:#1f66c1}
+.bottom{display:grid;grid-template-columns:360px 1fr;gap:10px;margin-top:12px}.method{background:#fffdf7;border:1px solid #efd89e;border-radius:12px;padding:14px}.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px}.priority{background:white;border:1px solid var(--line);border-radius:12px;padding:12px}.actions{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.action{border:1px solid #f2d7c1;border-radius:10px;padding:10px;min-height:140px;background:#fffaf7}.sev{font-size:10px;font-weight:800;color:#e33b2e}.action h4{font-size:12px;margin:8px 0}.action p{font-size:11px;line-height:1.4}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}select{padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;min-width:220px}.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:10px;padding:12px}.metric span{font-size:11px;color:#687585}.metric b{display:block;font-size:18px;margin-top:4px}
+.arm-store-list{display:grid;gap:8px}.arm-store-row{display:grid;grid-template-columns:minmax(140px,1.4fr) 110px 85px;gap:10px;align-items:center;padding:9px 10px;border:1px solid #e4eaf0;border-radius:8px;background:#f9fbfd}.arm-store-row b{text-align:right}.arm-store-row span:last-child{text-align:right;font-weight:700}.arm-store-list{display:grid;gap:8px}.arm-store-row{display:grid;grid-template-columns:minmax(140px,1.4fr) 110px 85px;gap:10px;align-items:center;padding:9px 10px;border:1px solid #e4eaf0;border-radius:8px;background:#f9fbfd}.arm-store-row b{text-align:right}.arm-store-row span:last-child{text-align:right;font-weight:700}.decomp{display:grid;justify-items:center;gap:12px;padding:18px}.node{background:#f7fbff;border:1px solid #b7d1ec;border-radius:10px;padding:12px 16px;min-width:170px;text-align:center}.node.root{background:#e4f0fc}.node span,.node small{display:block;font-size:11px;color:#5d7188}.node b{display:block;margin:4px 0}.connector{height:28px;width:2px;background:#8baecc}.branch{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}.branch:before{content:'';position:absolute;top:-14px;left:16%;right:16%;height:2px;background:#8baecc}
+.footer{height:34px;background:var(--navy);color:white;margin:12px -14px -14px;display:grid;place-items:center;font-size:11px}
+@media(max-width:1100px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:relative}.kpis{grid-template-columns:repeat(3,1fr)}.row3,.tables,.bottom,.grid2{grid-template-columns:1fr}.actions{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.kpis{grid-template-columns:1fr 1fr}.actions{grid-template-columns:1fr}.top{flex-direction:column;align-items:flex-start;gap:8px}.controls{width:100%;overflow:auto}.donut-grid,.regions{grid-template-columns:1fr}.branch{grid-template-columns:1fr}.branch:before{display:none}}
+
+.regional-summary-placeholder{
+    height:230px;
+    border-radius:12px;
+    background:linear-gradient(145deg,#eef5fc,#dbe9f8);
+    border:1px solid #cdddec;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px
+}
+.regional-summary-title{
+    font-size:18px;
+    font-weight:800;
+    color:#173b5e;
+    margin-bottom:8px
+}
+.regional-summary-note{
+    font-size:12px;
+    color:#687585
+}
+
+/* v2.5.1 clean refinement */
+.compact-commentary{margin:12px 0;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.exec-commentary-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:7px}
+.exec-commentary-head h3{margin:0;font-size:15px}
+.exec-commentary-head p{margin:3px 0 0;font-size:11px;color:#687585}
+.exec-commentary-head>span{font-size:10px;font-weight:700;color:#1f5d8f;border:1px solid #c7dbed;background:#f2f8fd;border-radius:999px;padding:5px 8px;white-space:nowrap}
+.exec-commentary-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+.exec-commentary-item{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start;padding:8px 0;border-bottom:1px solid #edf1f5;font-size:11px;line-height:1.5}
+.exec-commentary-item i{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#e7f6ed;color:#178c43;font-style:normal;font-size:10px;font-weight:800}
+.boardroom-focus-layout{grid-template-columns:minmax(0,2.9fr) minmax(255px,1fr)!important;gap:10px!important;align-items:stretch}
+.boardroom-focus-layout .method{min-width:0}
+.compact-priority{min-width:0;padding:12px!important}
+.priority-list{display:grid;gap:7px}
+.priority-row{display:grid;grid-template-columns:80px 1fr;gap:9px;align-items:center;padding:9px 10px;border:1px solid #dbe5ee;border-left:4px solid #4f8fc7;border-radius:9px;background:#f9fbfd}
+.priority-row:nth-child(2){border-left-color:#2f9b75}.priority-row:nth-child(3){border-left-color:#d59a2c}.priority-row:nth-child(4){border-left-color:#7a68b4}.priority-row:nth-child(5){border-left-color:#2a9a9a}
+.priority-tag{font-size:8.5px;font-weight:800;color:#1f5d8f;letter-spacing:.03em}
+.priority-row b{display:block;font-size:11px;margin-bottom:2px}.priority-row small{display:block;font-size:10px;color:#687585;line-height:1.3}
+.neutral-label{color:#1f5d8f!important}
+@media(max-width:900px){.exec-commentary-list{grid-template-columns:1fr}.boardroom-focus-layout{grid-template-columns:1fr!important}}
+
+
+/* Mobile horizontal top tabs — desktop sidebar remains unchanged */
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .app {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px 8px 7px !important;
+    display: block !important;
+    background: linear-gradient(135deg,#052b49,#061f36) !important;
+    box-shadow: 0 4px 14px rgba(5,31,54,.22) !important;
+  }
+
+  .sidebar .brand {
+    display: block !important;
+    margin: 0 0 7px !important;
+    font-size: 17px !important;
+    line-height: 1.05 !important;
+  }
+
+  .sidebar .brand small {
+    display: inline-block !important;
+    margin-left: 6px !important;
+    font-size: 8px !important;
+    vertical-align: middle !important;
+  }
+
+  .sidebar .divider,
+  .sidebar .side-note,
+  .sidebar .qf {
+    display: none !important;
+  }
+
+  .sidebar .menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 0 2px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .sidebar .menu::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sidebar .menu button {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 8px 11px !important;
+    border-radius: 999px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+  }
+
+  .sidebar .menu button.active {
+    background: #1467b7 !important;
+    border-color: #76b4ea !important;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08) !important;
+  }
+
+  .main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 8px 8px !important;
+    margin: 0 !important;
+  }
+
+  .top {
+    margin: 0 -8px 12px !important;
+    padding: 12px !important;
+  }
+
+  .top h1 {
+    font-size: 18px !important;
+  }
+
+  .controls {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 6px !important;
+  }
+
+  .kpis {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .row3,
+  .grid2,
+  .tables,
+  .bottom,
+  .boardroom-focus-layout,
+  .commentary-grid,
+  .exec-commentary-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tc,
+  .table-wrap,
+  .card {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  table {
+    min-width: 680px !important;
+  }
+}
+
+
+/* Wk4 mobile frame and whitespace fix */
+@media (max-width: 700px) {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    margin: 0 !important;
+  }
+
+  .app,
+  .main,
+  .page,
+  .page.active {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .main {
+    padding: 0 8px 10px !important;
+    overflow-x: hidden !important;
+  }
+
+  .page {
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px !important;
+  }
+
+  .sidebar .brand {
+    margin: 0 0 7px !important;
+    font-size: 17px !important;
+  }
+
+  .sidebar .menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 6px !important;
+    padding: 0 0 2px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .sidebar .menu::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sidebar .menu button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    padding: 8px 11px !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    border-radius: 999px !important;
+  }
+
+  .top {
+    width: calc(100% + 16px) !important;
+    margin: 0 -8px 10px !important;
+    padding: 11px 10px !important;
+    min-height: 0 !important;
+    align-items: stretch !important;
+  }
+
+  .top h1 {
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+  }
+
+  .top p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+  .controls {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    padding-bottom: 2px !important;
+  }
+
+  .box,
+  .updated {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+
+  .kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .kpi {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 11px !important;
+  }
+
+  .kpi .value {
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+
+  .row3,
+  .grid2,
+  .tables,
+  .bottom,
+  .boardroom-focus-layout,
+  .donut-grid,
+  .regions,
+  .exec-commentary-list,
+  .commentary-grid,
+  .branch {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .card,
+  .tc,
+  .method,
+  .priority,
+  .compact-commentary,
+  .exec-commentary,
+  .regional-summary-placeholder {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 11px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .card {
+    min-height: 0 !important;
+  }
+
+  .row3,
+  .grid2,
+  .tables,
+  .bottom {
+    margin-top: 8px !important;
+  }
+
+  .donut-grid {
+    align-items: start !important;
+  }
+
+  .donut {
+    width: 155px !important;
+    height: 155px !important;
+    margin: 4px auto 12px !important;
+  }
+
+  .donut:after {
+    inset: 39px !important;
+  }
+
+  .legend {
+    width: 100% !important;
+    gap: 7px !important;
+  }
+
+  svg,
+  .trend,
+  .waterfall {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .decomp {
+    width: 100% !important;
+    padding: 8px 0 !important;
+    gap: 8px !important;
+  }
+
+  .branch {
+    gap: 8px !important;
+  }
+
+  .branch:before,
+  .connector {
+    display: none !important;
+  }
+
+  .node {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  .regional-summary-placeholder {
+    height: auto !important;
+    min-height: 120px !important;
+  }
+
+  .rlist {
+    margin-top: 8px !important;
+  }
+
+  .exec-commentary-head {
+    gap: 8px !important;
+  }
+
+  .exec-commentary-list {
+    gap: 0 !important;
+  }
+
+  .exec-commentary-item {
+    padding: 7px 0 !important;
+  }
+
+  .actions {
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+  }
+
+  .action,
+  .priority-row {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 9px !important;
+  }
+
+  .priority-row {
+    grid-template-columns: 76px minmax(0,1fr) !important;
+  }
+
+  .filters {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  select {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Tables fit in frame without clipping the page */
+  .tc {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  table {
+    width: 100% !important;
+    min-width: 560px !important;
+    table-layout: auto !important;
+  }
+
+  th, td {
+    white-space: nowrap !important;
+    padding: 7px 5px !important;
+  }
+
+  /* Explorer lists and generated metric cards */
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .metric {
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 10px !important;
+  }
+
+  .arm-store-row {
+    grid-template-columns: minmax(120px,1fr) 84px 64px !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  .footer {
+    margin: 10px -8px -10px !important;
+    height: auto !important;
+    min-height: 34px !important;
+    padding: 8px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .kpis,
+  .metric-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .priority-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .priority-tag {
+    margin-bottom: 2px !important;
+  }
+
+  table {
+    min-width: 520px !important;
+  }
+}
+
+</style></head><body><div class='app'>
+<aside class='sidebar'><div class='brand'>APTRONIX<small>RETAIL INTELLIGENCE OS 2.0</small></div><div class='menu'>
+<button class='active' data-id='overview'>⌂ Executive Overview</button><button data-id='executive'>▣ Executive Dashboard</button><button data-id='boardroom'>▥ Boardroom Intelligence</button><button data-id='store'>▦ Store Explorer</button><button data-id='arm'>⌕ ARM Explorer</button><button data-id='retail'>◎ Retail Excellence</button></div>
+<div class='divider'></div><div class='side-note'>All values are in ₹ Crore unless specified. Growth vs previous comparable period.</div></aside>
+<main class='main'>
+
+
+<section id='overview' class='page active'>
+<div class='top'><div><h1>Executive Overview</h1><p>Complete business performance at a glance</p></div><div class='controls'><div class='box'>Wk5 vs Wk4</div><div class='box'>Weekly View</div><button class='box' onclick='window.print()'>⇩ Export</button><div class='updated'>Current Refresh<br>Wk5 vs Wk4</div></div></div>
+<div class='kpis'><div class='kpi'><div class='label'>Revenue (Core)</div><div class='value'>₹34.98 Cr <span class='down'>▼ 10.3%</span></div><div class='sub'>vs Wk4: ₹41.11 Cr</div></div><div class='kpi'><div class='label'>Conversion %</div><div class='value'>1.4% <span class='down'>▼ 5.5 pts</span></div><div class='sub'>Weighted network conversion</div></div><div class='kpi'><div class='label'>Loan Attach %</div><div class='value'>21.4%</div><div class='sub'>Benchmark: 25%</div></div><div class='kpi'><div class='label'>Trade-in Attach %</div><div class='value'>14.4%</div><div class='sub'>Reference: 10%</div></div><div class='kpi'><div class='label'>Reporting Stores</div><div class='value'>68</div><div class='sub'>Stores with data</div></div><div class='kpi'><div class='label'>Retail Excellence Leader</div><div class='value'>73.9</div><div class='sub'>Aptronix Ambattur</div></div></div>
+<div class='row3'>
+<div class='card'><h3>Revenue by LOB (Units Mix)</h3><div class='donut-grid'><div class='donut' style='background:conic-gradient(#1f66c1 0.0deg 239.5deg, #2f9b4f 239.5deg 276.4deg, #7650a8 276.4deg 307.5deg, #e98422 307.5deg 325.6deg, #2aa6b5 325.6deg 360.0deg)'><div class='center'>4,954<small>Total Units</small></div></div><div class='legend'><div class='li'><span class='dot' style='background:#1f66c1'></span><span>iPhone</span><b>3,296</b><span class='up'>16.7%</span></div><div class='li'><span class='dot' style='background:#2f9b4f'></span><span>Mac</span><b>508</b><span class='up'>14.2%</span></div><div class='li'><span class='dot' style='background:#7650a8'></span><span>iPad</span><b>428</b><span class='down'>-8.5%</span></div><div class='li'><span class='dot' style='background:#e98422'></span><span>Watch</span><b>249</b><span class='down'>-0.4%</span></div><div class='li'><span class='dot' style='background:#2aa6b5'></span><span>AirPods</span><b>473</b><span class='up'>7.7%</span></div></div></div></div>
+<div class='card'><h3>Revenue Trend (Actual Wk4 → Wk5)</h3><svg viewBox='0 0 520 250' class='trend'><line x1="52" x2="468" y1="52.0" y2="52.0" class="grid"/><line x1="52" x2="468" y1="88.5" y2="88.5" class="grid"/><line x1="52" x2="468" y1="125.0" y2="125.0" class="grid"/><line x1="52" x2="468" y1="161.5" y2="161.5" class="grid"/><line x1="52" x2="468" y1="198.0" y2="198.0" class="grid"/><path d='M52,108.5 L468,147.4' class='line1'/><circle cx='52' cy='108.5' r='5' fill='#1f66c1'/><circle cx='468' cy='147.4' r='5' fill='#1f66c1'/><text x='52' y='96.5' text-anchor='middle'>41.11</text><text x='468' y='135.4' text-anchor='middle'>36.86</text><text x='52' y='235' text-anchor='middle'>Wk4</text><text x='468' y='235' text-anchor='middle'>Wk5</text></svg></div>
+<div class='card'><h3>Regional Revenue Summary (₹ Cr)</h3><div class='regional-summary-placeholder'><div class='regional-summary-title'>Regional Revenue Summary</div><div class='regional-summary-note'>Region-wise Wk5 revenue and growth vs Wk4</div></div><div class='rlist'><div class='rline'><span>Telangana</span><b>12.68</b><span class='down'>-17.6%</span></div><div class='rline'><span>AndhraPradesh</span><b>5.43</b><span class='down'>-20.2%</span></div><div class='rline'><span>Tamil Nadu</span><b>5.01</b><span class='down'>-2.8%</span></div><div class='rline'><span>Delhi</span><b>3.55</b><span class='down'>-5.4%</span></div><div class='rline'><span>Ahmedabad</span><b>2.66</b><span class='up'>27.0%</span></div><div class='rline'><span>Karnataka</span><b>2.35</b><span class='up'>9.9%</span></div><div class='rline'><span>Mumbai</span><b>1.89</b><span class='up'>2.2%</span></div><div class='rline'><span>Gurugram</span><b>1.51</b><span class='down'>-20.0%</span></div><div class='rline'><span>Noida</span><b>0.90</b><span class='up'>2.9%</span></div><div class='rline'><span>Ludhiana</span><b>0.87</b><span class='down'>-25.0%</span></div></div></div>
+</div>
+<div class='tables'>
+<div class='tc'><h3>Top Revenue Stores</h3><table><tbody><tr><td>1</td><td>Aptronix PMC Chennai</td><td>Karthik Lingesh</td><td>₹2.10 Cr</td><td><div class='mini'><span style='width:9.2%'></span></div></td><td class='up'>9.2%</td></tr><tr><td>2</td><td>Aptronix Sarath Capital City</td><td>Mohammed Gouse</td><td>₹1.65 Cr</td><td><div class='mini'><span style='width:20.3%'></span></div></td><td class='down'>-20.3%</td></tr><tr><td>3</td><td>Aptronix Inorbit Mall</td><td>V Abhilash</td><td>₹1.24 Cr</td><td><div class='mini'><span style='width:19.7%'></span></div></td><td class='down'>-19.7%</td></tr><tr><td>4</td><td>Aptronix VR CHENNAI</td><td>Karthik Lingesh</td><td>₹1.23 Cr</td><td><div class='mini'><span style='width:17.1%'></span></div></td><td class='down'>-17.1%</td></tr><tr><td>5</td><td>Aptronix Vegas</td><td>Mohit Kumar</td><td>₹1.20 Cr</td><td><div class='mini'><span style='width:5.4%'></span></div></td><td class='down'>-5.4%</td></tr></tbody></table></div>
+<div class='tc'><h3>Bottom Revenue Stores</h3><table><tbody><tr><td>1</td><td>Aptronix GVK One</td><td>Abdul Khadeer</td><td>₹15.1 L</td><td><div class='mini'><span style='width:32.4%'></span></div></td><td class='down'>-32.4%</td></tr><tr><td>2</td><td>Aptronix Siddipet</td><td>Mohammed Gouse</td><td>₹15.6 L</td><td><div class='mini'><span style='width:45.6%'></span></div></td><td class='down'>-45.6%</td></tr><tr><td>3</td><td>Aptronix Sunview</td><td>Subhojit Kundu</td><td>₹16.1 L</td><td><div class='mini'><span style='width:45.9%'></span></div></td><td class='down'>-45.9%</td></tr><tr><td>4</td><td>Aptronix Gatlodia</td><td>Sahil Khatuja</td><td>₹19.3 L</td><td><div class='mini'><span style='width:20.4%'></span></div></td><td class='down'>-20.4%</td></tr><tr><td>5</td><td>Aptronix Kochi</td><td>Poornesh</td><td>₹20.3 L</td><td><div class='mini'><span style='width:40.1%'></span></div></td><td class='down'>-40.1%</td></tr></tbody></table></div>
+<div class='tc'><h3>ARM Revenue Ranking</h3><table><tbody><tr><td>1</td><td>Karthik Lingesh</td><td>₹5.01 Cr</td><td><div class='mini blue'><span style='width:100.0%'></span></div></td><td class='down'>-2.8%</td></tr><tr><td>2</td><td>Mohit Kumar</td><td>₹3.51 Cr</td><td><div class='mini blue'><span style='width:70.0%'></span></div></td><td class='down'>-10.7%</td></tr><tr><td>3</td><td>V Abhilash</td><td>₹3.46 Cr</td><td><div class='mini blue'><span style='width:69.0%'></span></div></td><td class='down'>-11.3%</td></tr><tr><td>4</td><td>Mohammed Gouse</td><td>₹3.41 Cr</td><td><div class='mini blue'><span style='width:68.0%'></span></div></td><td class='down'>-22.2%</td></tr><tr><td>5</td><td>Naveen Bandi</td><td>₹3.26 Cr</td><td><div class='mini blue'><span style='width:65.1%'></span></div></td><td class='down'>-24.0%</td></tr></tbody></table></div>
+</div>
+<div class='bottom'><div class='method'><h3>Retail Excellence Calculation Methodology</h3><div class='mgrid'><div>• Revenue Growth — 25%</div><div>• Conversion Growth — 20%</div><div>• Loan Attach — 15%</div><div>• Trade-in — 10%</div><div>• Revenue/Sq Ft — 10%</div><div>• Risk / RAG — 10%</div></div></div><div class='priority'><h3>Priority Actions</h3><div class='actions'><div class='action'><div class='sev neutral-label'>AFFORDABILITY</div><h4>Improve Loan Attach</h4><p>45 stores below 25%.</p></div><div class='action'><div class='sev neutral-label'>UPGRADE</div><h4>Strengthen Trade-in</h4><p>28 stores below 10%.</p></div><div class='action'><div class='sev neutral-label'>EXECUTION</div><h4>Improve Conversion</h4><p>68 stores below 10%.</p></div><div class='action'><div class='sev neutral-label'>RECOVERY</div><h4>Recover Bottom Stores</h4><p>Bottom 10 represent ₹2.00 Cr.</p></div><div class='action'><div class='sev neutral-label'>EXCELLENCE</div><h4>Coach & Replicate</h4><p>Use RE scores for coaching.</p></div></div></div></div>
+</section>
+
+
+
+
+<section id='executive' class='page'>
+<div class='top'><div><h1>Executive Dashboard</h1><p>LOB, store and ARM performance — Wk5 vs Wk4</p></div></div>
+<div class='grid2'><div class='card'><h3>Revenue Trend (Actual Wk4 → Wk5)</h3><svg viewBox='0 0 520 250' class='trend'><line x1="52" x2="468" y1="52.0" y2="52.0" class="grid"/><line x1="52" x2="468" y1="88.5" y2="88.5" class="grid"/><line x1="52" x2="468" y1="125.0" y2="125.0" class="grid"/><line x1="52" x2="468" y1="161.5" y2="161.5" class="grid"/><line x1="52" x2="468" y1="198.0" y2="198.0" class="grid"/><path d='M52,108.5 L468,147.4' class='line1'/><circle cx='52' cy='108.5' r='5' fill='#1f66c1'/><circle cx='468' cy='147.4' r='5' fill='#1f66c1'/><text x='52' y='96.5' text-anchor='middle'>41.11</text><text x='468' y='135.4' text-anchor='middle'>36.86</text><text x='52' y='235' text-anchor='middle'>Wk4</text><text x='468' y='235' text-anchor='middle'>Wk5</text></svg></div><div class='card'><h3>LOB Unit Movement — Wk5 vs Wk4</h3><div class='metric-grid'><div class='metric'><span>iPhone</span><b class='up'>16.7%</b><small>Wk4 2,824 → Wk5 3,296</small></div><div class='metric'><span>Mac</span><b class='up'>14.2%</b><small>Wk4 445 → Wk5 508</small></div><div class='metric'><span>iPad</span><b class='down'>-8.5%</b><small>Wk4 468 → Wk5 428</small></div><div class='metric'><span>Watch</span><b class='down'>-0.4%</b><small>Wk4 250 → Wk5 249</small></div><div class='metric'><span>AirPods</span><b class='up'>7.7%</b><small>Wk4 439 → Wk5 473</small></div></div></div></div>
+<div class='exec-commentary compact-commentary'><div class='exec-commentary-head'><div><h3>Executive Commentary</h3><p>Decision-oriented read from the weekly data</p></div><span>Wk5 vs Wk4</span></div><div class='exec-commentary-list'><div class='exec-commentary-item'><i>✓</i><span>Revenue declined 10.3%, reducing ₹4.25 Cr to reach ₹36.86 Cr.</span></div><div class='exec-commentary-item'><i>✓</i><span>Conversion moved -5.5 pts to 1.4%; review traffic quality and store execution together.</span></div><div class='exec-commentary-item'><i>✓</i><span>Loan attach is 21.4% versus the 25% benchmark; 45 stores remain below target.</span></div><div class='exec-commentary-item'><i>✓</i><span>Trade-in attach is 14.4%; 28 stores are below the 10% reference.</span></div><div class='exec-commentary-item'><i>✓</i><span>Top 5 stores contributed 20.1% of revenue; Bottom 10 account for ₹2.00 Cr.</span></div><div class='exec-commentary-item'><i>✓</i><span>Vishal Nadar leads Retail Excellence at 68.2; Poornesh needs focus at 34.3.</span></div></div></div>
+<div class='tables'><div class='tc'><h3>Top Revenue Stores</h3><table><tbody><tr><td>1</td><td>Aptronix PMC Chennai</td><td>Karthik Lingesh</td><td>₹2.10 Cr</td><td><div class='mini'><span style='width:9.2%'></span></div></td><td class='up'>9.2%</td></tr><tr><td>2</td><td>Aptronix Sarath Capital City</td><td>Mohammed Gouse</td><td>₹1.65 Cr</td><td><div class='mini'><span style='width:20.3%'></span></div></td><td class='down'>-20.3%</td></tr><tr><td>3</td><td>Aptronix Inorbit Mall</td><td>V Abhilash</td><td>₹1.24 Cr</td><td><div class='mini'><span style='width:19.7%'></span></div></td><td class='down'>-19.7%</td></tr><tr><td>4</td><td>Aptronix VR CHENNAI</td><td>Karthik Lingesh</td><td>₹1.23 Cr</td><td><div class='mini'><span style='width:17.1%'></span></div></td><td class='down'>-17.1%</td></tr><tr><td>5</td><td>Aptronix Vegas</td><td>Mohit Kumar</td><td>₹1.20 Cr</td><td><div class='mini'><span style='width:5.4%'></span></div></td><td class='down'>-5.4%</td></tr></tbody></table></div><div class='tc'><h3>Bottom Revenue Stores</h3><table><tbody><tr><td>1</td><td>Aptronix GVK One</td><td>Abdul Khadeer</td><td>₹15.1 L</td><td><div class='mini'><span style='width:32.4%'></span></div></td><td class='down'>-32.4%</td></tr><tr><td>2</td><td>Aptronix Siddipet</td><td>Mohammed Gouse</td><td>₹15.6 L</td><td><div class='mini'><span style='width:45.6%'></span></div></td><td class='down'>-45.6%</td></tr><tr><td>3</td><td>Aptronix Sunview</td><td>Subhojit Kundu</td><td>₹16.1 L</td><td><div class='mini'><span style='width:45.9%'></span></div></td><td class='down'>-45.9%</td></tr><tr><td>4</td><td>Aptronix Gatlodia</td><td>Sahil Khatuja</td><td>₹19.3 L</td><td><div class='mini'><span style='width:20.4%'></span></div></td><td class='down'>-20.4%</td></tr><tr><td>5</td><td>Aptronix Kochi</td><td>Poornesh</td><td>₹20.3 L</td><td><div class='mini'><span style='width:40.1%'></span></div></td><td class='down'>-40.1%</td></tr></tbody></table></div><div class='tc'><h3>Bottom ARM Ranking</h3><table><tbody><tr><td>1</td><td>Poornesh</td><td>₹20.3 L</td><td><div class='mini blue'><span style='width:9.5%'></span></div></td><td class='down'>-40.1%</td></tr><tr><td>2</td><td>Stalin Tadikamalla</td><td>₹81.0 L</td><td><div class='mini blue'><span style='width:38.0%'></span></div></td><td class='down'>-30.8%</td></tr><tr><td>3</td><td>Subhojit Kundu</td><td>₹87.2 L</td><td><div class='mini blue'><span style='width:40.9%'></span></div></td><td class='down'>-25.0%</td></tr><tr><td>4</td><td>Deepak Thakur</td><td>₹1.89 Cr</td><td><div class='mini blue'><span style='width:88.8%'></span></div></td><td class='up'>2.2%</td></tr><tr><td>5</td><td>Srinivas Vennela</td><td>₹2.13 Cr</td><td><div class='mini blue'><span style='width:100.0%'></span></div></td><td class='down'>-13.4%</td></tr></tbody></table></div></div>
+</section>
+
+
+
+
+<section id='boardroom' class='page'>
+<div class='top'><div><h1>Boardroom Intelligence</h1><p>Wk5 vs Wk4 drivers, leakage and decisions</p></div></div>
+<div class='grid2'>
+<div class='card'><h3>LOB Driver View — Wk5 vs Wk4</h3><div class='metric-grid'><div class='metric'><span>iPhone</span><b class='up'>16.7%</b><small>Wk4 2,824 → Wk5 3,296</small></div><div class='metric'><span>Mac</span><b class='up'>14.2%</b><small>Wk4 445 → Wk5 508</small></div><div class='metric'><span>iPad</span><b class='down'>-8.5%</b><small>Wk4 468 → Wk5 428</small></div><div class='metric'><span>Watch</span><b class='down'>-0.4%</b><small>Wk4 250 → Wk5 249</small></div><div class='metric'><span>AirPods</span><b class='up'>7.7%</b><small>Wk4 439 → Wk5 473</small></div></div></div>
+<div class='card'><h3>Revenue Decomposition</h3><div class='decomp'><div class='node root'><span>Wk5 Revenue</span><b>₹36.86 Cr</b></div><div class='connector'></div><div class='branch'><div class='node'><span>Top ARM</span><b>Karthik Lingesh</b><small>₹5.01 Cr</small></div><div class='node'><span>Top Store</span><b>Aptronix PMC Chennai</b><small>₹2.10 Cr</small></div><div class='node'><span>WoW Movement</span><b>-10.3%</b><small>Wk5 vs Wk4</small></div></div></div></div>
+</div>
+<div class='grid2'><div class='tc'><h3>Growth Drivers — ARMs</h3><table><tbody><tr><td>1</td><td>Sahil Khatuja</td><td>₹2.66 Cr</td><td><div class='mini blue'><span style='width:53.1%'></span></div></td><td class='up'>27.0%</td></tr><tr><td>2</td><td>Vishal Nadar</td><td>₹2.15 Cr</td><td><div class='mini blue'><span style='width:42.8%'></span></div></td><td class='up'>19.4%</td></tr><tr><td>3</td><td>Deepak Thakur</td><td>₹1.89 Cr</td><td><div class='mini blue'><span style='width:37.7%'></span></div></td><td class='up'>2.2%</td></tr><tr><td>4</td><td>Karthik Lingesh</td><td>₹5.01 Cr</td><td><div class='mini blue'><span style='width:100.0%'></span></div></td><td class='down'>-2.8%</td></tr><tr><td>5</td><td>Lalit Gupta</td><td>₹2.45 Cr</td><td><div class='mini blue'><span style='width:49.0%'></span></div></td><td class='down'>-5.1%</td></tr><tr><td>6</td><td>Abdul Khadeer</td><td>₹2.55 Cr</td><td><div class='mini blue'><span style='width:50.8%'></span></div></td><td class='down'>-9.4%</td></tr><tr><td>7</td><td>Mohit Kumar</td><td>₹3.51 Cr</td><td><div class='mini blue'><span style='width:70.0%'></span></div></td><td class='down'>-10.7%</td></tr><tr><td>8</td><td>V Abhilash</td><td>₹3.46 Cr</td><td><div class='mini blue'><span style='width:69.0%'></span></div></td><td class='down'>-11.3%</td></tr></tbody></table></div><div class='tc'><h3>Leakage Watch — Lowest Growth Stores</h3><table><tbody><tr><td>1</td><td>Aptronix Sunview</td><td>Subhojit Kundu</td><td>₹16.1 L</td><td><div class='mini'><span style='width:45.9%'></span></div></td><td class='down'>-45.9%</td></tr><tr><td>2</td><td>Aptronix Siddipet</td><td>Mohammed Gouse</td><td>₹15.6 L</td><td><div class='mini'><span style='width:45.6%'></span></div></td><td class='down'>-45.6%</td></tr><tr><td>3</td><td>Aptronix Warangal</td><td>Naveen Bandi</td><td>₹23.3 L</td><td><div class='mini'><span style='width:45.4%'></span></div></td><td class='down'>-45.4%</td></tr><tr><td>4</td><td>Aptronix DSL Mall</td><td>Naveen Bandi</td><td>₹30.8 L</td><td><div class='mini'><span style='width:40.3%'></span></div></td><td class='down'>-40.3%</td></tr><tr><td>5</td><td>Aptronix Kochi</td><td>Poornesh</td><td>₹20.3 L</td><td><div class='mini'><span style='width:40.1%'></span></div></td><td class='down'>-40.1%</td></tr></tbody></table></div></div>
+<div class='bottom boardroom-focus-layout'><div class='method'><h3>Boardroom Read</h3><div class='mgrid'><div>• Revenue declined 10.3% WoW (₹4.25 Cr). Wk5 revenue is ₹36.86 Cr vs Wk4 ₹41.11 Cr.</div><div>• Core product momentum: iPhone 16.7%, Mac 14.2%, iPad -8.5%.</div><div>• Conversion moved -5.5 pts to 1.4%.</div><div>• Loan attach is 21.4% vs 25% benchmark; trade-in is 14.4%.</div><div>• Top ARM growth driver: Sahil Khatuja (27.0%).</div><div>• Retail Excellence leader: Aptronix Ambattur with score 73.9.</div></div></div><div class='priority compact-priority'><h3>Priority Actions</h3><div class='priority-list'><div class='priority-row'><div class='priority-tag'>AFFORDABILITY</div><div><b>Improve Loan Attach</b><small>45 stores below 25%.</small></div></div><div class='priority-row'><div class='priority-tag'>UPGRADE</div><div><b>Strengthen Trade-in</b><small>28 stores below 10%.</small></div></div><div class='priority-row'><div class='priority-tag'>EXECUTION</div><div><b>Improve Conversion</b><small>68 stores below 10%.</small></div></div><div class='priority-row'><div class='priority-tag'>RECOVERY</div><div><b>Recover Bottom Stores</b><small>Bottom 10 represent ₹2.00 Cr.</small></div></div><div class='priority-row'><div class='priority-tag'>EXCELLENCE</div><div><b>Coach & Replicate</b><small>Use RE scores for coaching.</small></div></div></div></div></div>
+</section>
+
+
+
+
+<section id='store' class='page'><div class='top'><div><h1>Store Explorer</h1><p>Wk5 vs Wk4 store-level performance</p></div></div>
+<div class='filters'><select id='storeArmFilter'><option>All</option><option>Abdul Khadeer</option><option>Deepak Thakur</option><option>Karthik Lingesh</option><option>Lalit Gupta</option><option>Mohammed Gouse</option><option>Mohit Kumar</option><option>Naveen Bandi</option><option>Poornesh</option><option>Sahil Khatuja</option><option>Srinivas Vennela</option><option>Stalin Tadikamalla</option><option>Subhojit Kundu</option><option>Syed Yusuf</option><option>V Abhilash</option><option>Vishal Nadar</option></select><select id='storeSelect'><option value='0'>Aptronix AS Rao Nagar</option><option value='1'>Aptronix Abids</option><option value='2'>Aptronix Aerocity</option><option value='3'>Aptronix Ambattur</option><option value='4'>Aptronix Ambience GGN</option><option value='5'>Aptronix Ambience VK</option><option value='6'>Aptronix Aspen Vizag</option><option value='7'>Aptronix BLR-PMC</option><option value='8'>Aptronix Banjara Hills</option><option value='9'>Aptronix Benz Vijayawada</option><option value='10'>Aptronix Bhimavaram</option><option value='11'>Aptronix Bodakdev</option><option value='12'>Aptronix Bopal</option><option value='13'>Aptronix Borivali</option><option value='14'>Aptronix DSL Mall</option><option value='15'>Aptronix Daba Vizag</option><option value='16'>Aptronix ECR Chennai</option><option value='17'>Aptronix Eluru Vijayawada</option><option value='18'>Aptronix GVK One</option><option value='19'>Aptronix Gachibowli</option><option value='20'>Aptronix Galleria</option><option value='21'>Aptronix Gatlodia</option><option value='22'>Aptronix Guntur</option><option value='23'>Aptronix Hanamkonda</option><option value='24'>Aptronix Himayath Nagar</option><option value='25'>Aptronix Inorbit Mall</option><option value='26'>Aptronix Jubilee Hills</option><option value='27'>Aptronix KNK Chennai</option><option value='28'>Aptronix Kakinada</option><option value='29'>Aptronix Kamla Nagar</option><option value='30'>Aptronix Khammam</option><option value='31'>Aptronix Kochi</option><option value='32'>Aptronix Kompally</option><option value='33'>Aptronix Kondapur</option><option value='34'>Aptronix Kukatpally</option><option value='35'>Aptronix Lakshmi Mills</option><option value='36'>Aptronix Logix</option><option value='37'>Aptronix MBD</option><option value='38'>Aptronix MG Bangalore</option><option value='39'>Aptronix MLBR Vijayawada</option><option value='40'>Aptronix Madhurawada</option><option value='41'>Aptronix Madinaguda</option><option value='42'>Aptronix Maninagar</option><option value='43'>Aptronix Marina Mall</option><option value='44'>Aptronix Mysore</option><option value='45'>Aptronix NAD</option><option value='46'>Aptronix Naroda</option><option value='47'>Aptronix Nellore</option><option value='48'>Aptronix Nikol</option><option value='49'>Aptronix PMC Chennai</option><option value='50'>Aptronix Palladium</option><option value='51'>Aptronix Panjagutta</option><option value='52'>Aptronix Parklane</option><option value='53'>Aptronix Pavillion</option><option value='54'>Aptronix Promenade</option><option value='55'>Aptronix Sarath Capital City</option><option value='56'>Aptronix Shaikpet</option><option value='57'>Aptronix Siddipet</option><option value='58'>Aptronix SouthEx</option><option value='59'>Aptronix Sunview</option><option value='60'>Aptronix VJN Bangalore</option><option value='61'>Aptronix VR CHENNAI</option><option value='62'>Aptronix Vanasthalipuram</option><option value='63'>Aptronix Vegas</option><option value='64'>Aptronix Vijay Cross Road</option><option value='65'>Aptronix Vizianagaram</option><option value='66'>Aptronix Warangal</option><option value='67'>Aptronix karimnagar</option></select><select id='storeMetric'><option value='summary'>All Fields</option><option value='revenue'>Revenue</option><option value='conversion'>Conversion</option><option value='loan'>Loan Attach</option><option value='trade'>Trade-in</option><option value='re'>Retail Excellence</option></select></div>
+<div id='storeMetrics' class='metric-grid'></div><div class='grid2'><div class='card'><h3>Revenue Comparison — Wk4 vs Wk5</h3><div id='storeChart'></div></div><div class='card'><h3>Store Score Profile</h3><div id='storeProfile'></div></div></div><div class='card' style='margin-top:10px'><h3>Recommended Action</h3><div id='storeAction' class='method'></div></div></section>
+
+
+
+
+<section id='arm' class='page'><div class='top'><div><h1>ARM Explorer</h1><p>Wk5 vs Wk4 ARM performance</p></div></div>
+<div class='filters'><select id='armNameFilter'><option>All</option><option>Abdul Khadeer</option><option>Deepak Thakur</option><option>Karthik Lingesh</option><option>Lalit Gupta</option><option>Mohammed Gouse</option><option>Mohit Kumar</option><option>Naveen Bandi</option><option>Poornesh</option><option>Sahil Khatuja</option><option>Srinivas Vennela</option><option>Stalin Tadikamalla</option><option>Subhojit Kundu</option><option>Syed Yusuf</option><option>V Abhilash</option><option>Vishal Nadar</option></select><select id='armSelect'><option value='0'>Abdul Khadeer</option><option value='1'>Deepak Thakur</option><option value='2'>Karthik Lingesh</option><option value='3'>Lalit Gupta</option><option value='4'>Mohammed Gouse</option><option value='5'>Mohit Kumar</option><option value='6'>Naveen Bandi</option><option value='7'>Poornesh</option><option value='8'>Sahil Khatuja</option><option value='9'>Srinivas Vennela</option><option value='10'>Stalin Tadikamalla</option><option value='11'>Subhojit Kundu</option><option value='12'>Syed Yusuf</option><option value='13'>V Abhilash</option><option value='14'>Vishal Nadar</option></select><select id='armMetric'><option value='summary'>All Fields</option><option value='revenue'>Revenue</option><option value='conversion'>Conversion</option><option value='loan'>Loan Attach</option><option value='trade'>Trade-in</option><option value='re'>Retail Excellence</option></select></div>
+<div id='armMetrics' class='metric-grid'></div><div class='grid2'><div class='card'><h3>Stores Under ARM</h3><div id='armStores'></div></div><div class='card'><h3>ARM Score Profile</h3><div id='armProfile'></div></div></div><div class='card' style='margin-top:10px'><h3>Recommended Action</h3><div id='armAction' class='method'></div></div></section>
+
+
+
+
+<section id='retail' class='page'><div class='top'><div><h1>Retail Excellence</h1><p>Wk5 vs Wk4 methodology and rankings</p></div></div>
+<div class='grid2'><div class='method'><h3>Retail Excellence Calculation Methodology</h3><div class='mgrid'><div>• Revenue Growth — 25%</div><div>• Conversion Growth — 20%</div><div>• Loan Attach — 15%</div><div>• Trade-in — 10%</div><div>• Revenue/Sq Ft — 10%</div><div>• Risk / RAG — 10%</div></div></div><div class='card'><h3>Top 3 Retail Excellence Stores</h3><div class='branch' style='margin-top:35px'><div class='node'><span>Rank 1</span><b>Aptronix Ambattur</b><small>73.9 · 29.8%</small></div><div class='node'><span>Rank 2</span><b>Aptronix Borivali</b><small>71.9 · 43.5%</small></div><div class='node'><span>Rank 3</span><b>Aptronix ECR Chennai</b><small>70.4 · 45.1%</small></div></div></div></div>
+<div class='grid2'><div class='tc'><h3>Top Store Rankings</h3><table><thead><tr><th>Rank</th><th>Store</th><th>ARM</th><th>Wk5 Growth</th><th>RE Score</th></tr></thead><tbody><tr><td>1</td><td>Aptronix Ambattur</td><td>Karthik Lingesh</td><td>29.8%</td><td>73.9</td></tr><tr><td>2</td><td>Aptronix Borivali</td><td>Deepak Thakur</td><td>43.5%</td><td>71.9</td></tr><tr><td>3</td><td>Aptronix ECR Chennai</td><td>Karthik Lingesh</td><td>45.1%</td><td>70.4</td></tr><tr><td>4</td><td>Aptronix Maninagar</td><td>Sahil Khatuja</td><td>99.1%</td><td>68.0</td></tr><tr><td>5</td><td>Aptronix Bopal</td><td>Sahil Khatuja</td><td>65.0%</td><td>65.2</td></tr><tr><td>6</td><td>Aptronix Mysore</td><td>Vishal Nadar</td><td>36.1%</td><td>64.4</td></tr><tr><td>7</td><td>Aptronix VR CHENNAI</td><td>Karthik Lingesh</td><td>-17.1%</td><td>61.6</td></tr><tr><td>8</td><td>Aptronix Shaikpet</td><td>Abdul Khadeer</td><td>24.9%</td><td>61.4</td></tr><tr><td>9</td><td>Aptronix PMC Chennai</td><td>Karthik Lingesh</td><td>9.2%</td><td>60.7</td></tr><tr><td>10</td><td>Aptronix SouthEx</td><td>Mohit Kumar</td><td>33.2%</td><td>59.3</td></tr><tr><td>11</td><td>Aptronix BLR-PMC</td><td>Vishal Nadar</td><td>23.4%</td><td>58.7</td></tr><tr><td>12</td><td>Aptronix Logix</td><td>Lalit Gupta</td><td>2.9%</td><td>58.7</td></tr><tr><td>13</td><td>Aptronix NAD</td><td>Srinivas Vennela</td><td>-2.9%</td><td>58.4</td></tr><tr><td>14</td><td>Aptronix Kompally</td><td>Naveen Bandi</td><td>-15.8%</td><td>56.4</td></tr><tr><td>15</td><td>Aptronix Naroda</td><td>Sahil Khatuja</td><td>6.0%</td><td>56.4</td></tr><tr><td>16</td><td>Aptronix Panjagutta</td><td>Abdul Khadeer</td><td>26.5%</td><td>55.6</td></tr><tr><td>17</td><td>Aptronix Benz Vijayawada</td><td>Srinivas Vennela</td><td>18.9%</td><td>55.2</td></tr><tr><td>18</td><td>Aptronix Abids</td><td>Mohammed Gouse</td><td>-10.0%</td><td>53.3</td></tr><tr><td>19</td><td>Aptronix MLBR Vijayawada</td><td>Syed Yusuf</td><td>-12.3%</td><td>53.2</td></tr><tr><td>20</td><td>Aptronix AS Rao Nagar</td><td>Naveen Bandi</td><td>-13.2%</td><td>52.7</td></tr></tbody></table></div>
+<div class='tc'><h3>ARM Retail Excellence</h3><table><thead><tr><th>Rank</th><th>ARM</th><th>Wk5 Growth</th><th>RE Score</th></tr></thead><tbody><tr><td>1</td><td>Vishal Nadar</td><td>19.4%</td><td>68.2</td></tr><tr><td>2</td><td>Sahil Khatuja</td><td>27.0%</td><td>66.2</td></tr><tr><td>3</td><td>Deepak Thakur</td><td>2.2%</td><td>58.9</td></tr><tr><td>4</td><td>Karthik Lingesh</td><td>-2.8%</td><td>58.8</td></tr><tr><td>5</td><td>V Abhilash</td><td>-11.3%</td><td>55.6</td></tr><tr><td>6</td><td>Srinivas Vennela</td><td>-13.4%</td><td>55.4</td></tr><tr><td>7</td><td>Lalit Gupta</td><td>-5.1%</td><td>52.4</td></tr><tr><td>8</td><td>Naveen Bandi</td><td>-24.0%</td><td>52.0</td></tr><tr><td>9</td><td>Abdul Khadeer</td><td>-9.4%</td><td>50.7</td></tr><tr><td>10</td><td>Syed Yusuf</td><td>-21.5%</td><td>50.5</td></tr><tr><td>11</td><td>Mohammed Gouse</td><td>-22.2%</td><td>48.4</td></tr><tr><td>12</td><td>Stalin Tadikamalla</td><td>-30.8%</td><td>48.2</td></tr><tr><td>13</td><td>Mohit Kumar</td><td>-10.7%</td><td>48.1</td></tr><tr><td>14</td><td>Subhojit Kundu</td><td>-25.0%</td><td>35.8</td></tr><tr><td>15</td><td>Poornesh</td><td>-40.1%</td><td>34.3</td></tr></tbody></table></div></div>
+</section>
+
+<div class='footer'>Retail Intelligence OS JAS Wk5 | Executive Dashboard | Aptronix © 2026</div></main></div><script>
+const DATA={"stores": [{"arm": "Naveen Bandi", "store": "Aptronix AS Rao Nagar", "region": "Telangana", "wk13Revenue": 9742569.069999972, "wk1Revenue": 8454312.89, "growth": -0.13222961733644403, "wk13Footfall": 9885, "wk1Footfall": 11766, "footfallGrowth": 0.19028831562974202, "wk13Invoices": 863, "wk1Invoices": 222, "invoiceGrowth": -0.7427578215527231, "wk13Conversion": 0.08730399595346484, "wk1Conversion": 0.018867924528301886, "conversionChange": -0.06843607142516296, "wk13Loan": 0.3, "wk1Loan": 0.375, "iphoneLoan": 0.32926829268292684, "wk13Trade": 0.21951219512195122, "wk1Trade": 0.11764705882352941, "area": 825, "wk1RevSqFt": 11809.174630302998, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 52.7, "reRank": 20}, {"arm": "Mohammed Gouse", "store": "Aptronix Abids", "region": "Telangana", "wk13Revenue": 7356916.950000021, "wk1Revenue": 6624281.41, "growth": -0.09958458753568211, "wk13Footfall": 10066, "wk1Footfall": 12391, "footfallGrowth": 0.23097556129545002, "wk13Invoices": 790, "wk1Invoices": 177, "invoiceGrowth": -0.7759493670886076, "wk13Conversion": 0.07848201867673356, "wk1Conversion": 0.01428456137519167, "conversionChange": -0.06419745730154189, "wk13Loan": 0.27906976744186046, "wk1Loan": 0.2692307692307692, "iphoneLoan": 0.3283582089552239, "wk13Trade": 0.08955223880597014, "wk1Trade": 0.18181818181818182, "area": 868, "wk1RevSqFt": 8475.710771889424, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 53.3, "reRank": 18}, {"arm": "Mohit Kumar", "store": "Aptronix Aerocity", "region": "Delhi", "wk13Revenue": 3502658.799999998, "wk1Revenue": 2377736.55, "growth": -0.32116238384395274, "wk13Footfall": 3918, "wk1Footfall": 4692, "footfallGrowth": 0.19754977029096477, "wk13Invoices": 384, "wk1Invoices": 97, "invoiceGrowth": -0.7473958333333334, "wk13Conversion": 0.09800918836140889, "wk1Conversion": 0.020673486786018755, "conversionChange": -0.07733570157539013, "wk13Loan": 0, "wk1Loan": 0.05714285714285714, "iphoneLoan": 0, "wk13Trade": 0, "wk1Trade": 0.05263157894736842, "area": 1427.8, "wk1RevSqFt": 2453.185880375401, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 11.7, "reRank": 68}, {"arm": "Karthik Lingesh", "store": "Aptronix Ambattur", "region": "Tamil Nadu", "wk13Revenue": 3124884, "wk1Revenue": 4057337.2, "growth": 0.29839610046324927, "wk13Footfall": 3970, "wk1Footfall": 4790, "footfallGrowth": 0.20654911838790932, "wk13Invoices": 304, "wk1Invoices": 84, "invoiceGrowth": -0.7236842105263158, "wk13Conversion": 0.0765743073047859, "wk1Conversion": 0.01753653444676409, "conversionChange": -0.05903777285802181, "wk13Loan": 0.3673469387755102, "wk1Loan": 0.22580645161290322, "iphoneLoan": 0.40476190476190477, "wk13Trade": 0.14285714285714285, "wk1Trade": 0.2916666666666667, "area": 680, "wk1RevSqFt": 4595.417647058824, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 73.9, "reRank": 1}, {"arm": "Mohit Kumar", "store": "Aptronix Ambience GGN", "region": "Gurugram", "wk13Revenue": 12613841.800000023, "wk1Revenue": 9753170.940000001, "growth": -0.22678823037086263, "wk13Footfall": 28289, "wk1Footfall": 33048, "footfallGrowth": 0.16822793311888012, "wk13Invoices": 1018, "wk1Invoices": 278, "invoiceGrowth": -0.7269155206286837, "wk13Conversion": 0.03598571883064088, "wk1Conversion": 0.00841200677801985, "conversionChange": -0.027573712052621033, "wk13Loan": 0.007633587786259542, "wk1Loan": 0.007246376811594203, "iphoneLoan": 0.014492753623188406, "wk13Trade": 0.2608695652173913, "wk1Trade": 0.21052631578947367, "area": 1100, "wk1RevSqFt": 11467.12890909093, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 32.9, "reRank": 55}, {"arm": "Lalit Gupta", "store": "Aptronix Ambience VK", "region": "Delhi", "wk13Revenue": 7348061.850000009, "wk1Revenue": 6851574.35, "growth": -0.06756713676818177, "wk13Footfall": 9410, "wk1Footfall": 11130, "footfallGrowth": 0.18278427205100956, "wk13Invoices": 739, "wk1Invoices": 187, "invoiceGrowth": -0.7469553450608931, "wk13Conversion": 0.07853347502656748, "wk1Conversion": 0.016801437556154538, "conversionChange": -0.061732037470412934, "wk13Loan": 0.045454545454545456, "wk1Loan": 0.023529411764705882, "iphoneLoan": 0.047619047619047616, "wk13Trade": 0.20634920634920634, "wk1Trade": 0.3090909090909091, "area": 1388, "wk1RevSqFt": 5293.992687319891, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 42.6, "reRank": 36}, {"arm": "Srinivas Vennela", "store": "Aptronix Aspen Vizag", "region": "AndhraPradesh", "wk13Revenue": 11471707.000000006, "wk1Revenue": 8264493.5, "growth": -0.27957596022980746, "wk13Footfall": 7676, "wk1Footfall": 9088, "footfallGrowth": 0.1839499739447629, "wk13Invoices": 824, "wk1Invoices": 167, "invoiceGrowth": -0.7973300970873787, "wk13Conversion": 0.10734757686294945, "wk1Conversion": 0.01837588028169014, "conversionChange": -0.08897169658125931, "wk13Loan": 0.34065934065934067, "wk1Loan": 0.2457627118644068, "iphoneLoan": 0.4262295081967213, "wk13Trade": 0.09836065573770492, "wk1Trade": 0.11428571428571428, "area": 1399, "wk1RevSqFt": 8199.93352394568, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 45.9, "reRank": 31}, {"arm": "Vishal Nadar", "store": "Aptronix BLR-PMC", "region": "Karnataka", "wk13Revenue": 7351210.250000002, "wk1Revenue": 9071233.35, "growth": 0.2339782214772047, "wk13Footfall": 10346, "wk1Footfall": 12001, "footfallGrowth": 0.15996520394355307, "wk13Invoices": 722, "wk1Invoices": 176, "invoiceGrowth": -0.7562326869806094, "wk13Conversion": 0.06978542431857723, "wk1Conversion": 0.01466544454628781, "conversionChange": -0.055119979772289426, "wk13Loan": 0.035398230088495575, "wk1Loan": 0.012195121951219513, "iphoneLoan": 0.06557377049180328, "wk13Trade": 0.19672131147540983, "wk1Trade": 0.23404255319148937, "area": 1023, "wk1RevSqFt": 7185.933773216033, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 58.7, "reRank": 11}, {"arm": "Mohammed Gouse", "store": "Aptronix Banjara Hills", "region": "Telangana", "wk13Revenue": 6762166.100000003, "wk1Revenue": 5602209.600000001, "growth": -0.1715362330422499, "wk13Footfall": 6692, "wk1Footfall": 7638, "footfallGrowth": 0.14136282127913927, "wk13Invoices": 669, "wk1Invoices": 155, "invoiceGrowth": -0.7683109118086696, "wk13Conversion": 0.09997011356843993, "wk1Conversion": 0.020293270489656977, "conversionChange": -0.07967684307878295, "wk13Loan": 0.016666666666666666, "wk1Loan": 0.04411764705882353, "iphoneLoan": 0.025, "wk13Trade": 0.05, "wk1Trade": 0.06896551724137931, "area": 1474.1, "wk1RevSqFt": 4587.318431585377, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 28.4, "reRank": 62}, {"arm": "Srinivas Vennela", "store": "Aptronix Benz Vijayawada", "region": "AndhraPradesh", "wk13Revenue": 4544887.850000003, "wk1Revenue": 5403149.35, "growth": 0.18884107338314093, "wk13Footfall": 4693, "wk1Footfall": 5604, "footfallGrowth": 0.19411890049009162, "wk13Invoices": 556, "wk1Invoices": 145, "invoiceGrowth": -0.7392086330935251, "wk13Conversion": 0.11847432346047304, "wk1Conversion": 0.02587437544610992, "conversionChange": -0.09259994801436312, "wk13Loan": 0.15625, "wk1Loan": 0.3333333333333333, "iphoneLoan": 0.19047619047619047, "wk13Trade": 0.047619047619047616, "wk1Trade": 0.1, "area": 1823, "wk1RevSqFt": 2493.081651124522, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 55.2, "reRank": 17}, {"arm": "Syed Yusuf", "store": "Aptronix Bhimavaram", "region": "AndhraPradesh", "wk13Revenue": 4957294.200000002, "wk1Revenue": 3204148.05, "growth": -0.3536498096078303, "wk13Footfall": 5383, "wk1Footfall": 6745, "footfallGrowth": 0.25301876277168867, "wk13Invoices": 507, "wk1Invoices": 111, "invoiceGrowth": -0.7810650887573964, "wk13Conversion": 0.09418539847668586, "wk1Conversion": 0.016456634544106747, "conversionChange": -0.07772876393257912, "wk13Loan": 0.717391304347826, "wk1Loan": 0.625, "iphoneLoan": 0.7619047619047619, "wk13Trade": 0.047619047619047616, "wk1Trade": 0.14285714285714285, "area": 1882, "wk1RevSqFt": 2634.0564293305006, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 33.7, "reRank": 53}, {"arm": "Sahil Khatuja", "store": "Aptronix Bodakdev", "region": "Ahmedabad", "wk13Revenue": 2195231.25, "wk1Revenue": 2095601.2, "growth": -0.04538476299478702, "wk13Footfall": 4961, "wk1Footfall": 5832, "footfallGrowth": 0.17556944164482968, "wk13Invoices": 199, "wk1Invoices": 53, "invoiceGrowth": -0.7336683417085427, "wk13Conversion": 0.04011288046764765, "wk1Conversion": 0.009087791495198902, "conversionChange": -0.031025088972448753, "wk13Loan": 0.06896551724137931, "wk1Loan": 0.15384615384615385, "iphoneLoan": 0.08333333333333333, "wk13Trade": 0.041666666666666664, "wk1Trade": 0.10526315789473684, "area": 1742, "wk1RevSqFt": 1260.1786739380022, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 31.9, "reRank": 57}, {"arm": "Sahil Khatuja", "store": "Aptronix Bopal", "region": "Ahmedabad", "wk13Revenue": 2745985.4000000004, "wk1Revenue": 4529934.350000001, "growth": 0.6496571139817422, "wk13Footfall": 4953, "wk1Footfall": 5968, "footfallGrowth": 0.20492630728851202, "wk13Invoices": 353, "wk1Invoices": 104, "invoiceGrowth": -0.7053824362606232, "wk13Conversion": 0.07126993741166969, "wk1Conversion": 0.01742627345844504, "conversionChange": -0.05384366395322465, "wk13Loan": 0.12, "wk1Loan": 0.03333333333333333, "iphoneLoan": 0.10256410256410256, "wk13Trade": 0.2564102564102564, "wk1Trade": 0.30434782608695654, "area": 851, "wk1RevSqFt": 3226.774853113984, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 65.2, "reRank": 5}, {"arm": "Deepak Thakur", "store": "Aptronix Borivali", "region": "Mumbai", "wk13Revenue": 5150187.600000004, "wk1Revenue": 7392866.25, "growth": 0.43545572009842787, "wk13Footfall": 10043, "wk1Footfall": 12196, "footfallGrowth": 0.21437817385243454, "wk13Invoices": 606, "wk1Invoices": 175, "invoiceGrowth": -0.7112211221122112, "wk13Conversion": 0.06034053569650503, "wk1Conversion": 0.014348966874385045, "conversionChange": -0.04599156882211998, "wk13Loan": 0.24719101123595505, "wk1Loan": 0.2, "iphoneLoan": 0.25396825396825395, "wk13Trade": 0.1746031746031746, "wk1Trade": 0.1568627450980392, "area": 2347, "wk1RevSqFt": 2194.37051555177, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 71.9, "reRank": 2}, {"arm": "Naveen Bandi", "store": "Aptronix DSL Mall", "region": "Telangana", "wk13Revenue": 5157943.850000003, "wk1Revenue": 3078213.83, "growth": -0.403209123728635, "wk13Footfall": 12310, "wk1Footfall": 14290, "footfallGrowth": 0.16084484159220147, "wk13Invoices": 473, "wk1Invoices": 110, "invoiceGrowth": -0.7674418604651163, "wk13Conversion": 0.03842404549147035, "wk1Conversion": 0.007697690692792162, "conversionChange": -0.030726354798678183, "wk13Loan": 0.08888888888888889, "wk1Loan": 0.2962962962962963, "iphoneLoan": 0.13793103448275862, "wk13Trade": 0.034482758620689655, "wk1Trade": 0.025, "area": 1546.77, "wk1RevSqFt": 3334.654699793766, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 23.2, "reRank": 67}, {"arm": "Syed Yusuf", "store": "Aptronix Daba Vizag", "region": "AndhraPradesh", "wk13Revenue": 8240281.5000000065, "wk1Revenue": 6468800.25, "growth": -0.21497824437187069, "wk13Footfall": 9872, "wk1Footfall": 11810, "footfallGrowth": 0.1963128038897893, "wk13Invoices": 721, "wk1Invoices": 150, "invoiceGrowth": -0.7919556171983356, "wk13Conversion": 0.07303484602917341, "wk1Conversion": 0.012701100762066046, "conversionChange": -0.06033374526710737, "wk13Loan": 0.5394736842105263, "wk1Loan": 0.45054945054945056, "iphoneLoan": 0.6491228070175439, "wk13Trade": 0.03508771929824561, "wk1Trade": 0.09859154929577464, "area": 1120, "wk1RevSqFt": 7357.394196428577, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 40.8, "reRank": 40}, {"arm": "Karthik Lingesh", "store": "Aptronix ECR Chennai", "region": "Tamil Nadu", "wk13Revenue": 2103765.4499999997, "wk1Revenue": 3052660.7, "growth": 0.4510461230361971, "wk13Footfall": 2787, "wk1Footfall": 3301, "footfallGrowth": 0.18442770003588088, "wk13Invoices": 257, "wk1Invoices": 60, "invoiceGrowth": -0.7665369649805448, "wk13Conversion": 0.09221385001794044, "wk1Conversion": 0.018176310209027567, "conversionChange": -0.07403753980891287, "wk13Loan": 0.21875, "wk1Loan": 0.18181818181818182, "iphoneLoan": 0.2222222222222222, "wk13Trade": 0.18518518518518517, "wk1Trade": 0.07692307692307693, "area": 840, "wk1RevSqFt": 2504.482678571428, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 70.4, "reRank": 3}, {"arm": "Stalin Tadikamalla", "store": "Aptronix Eluru Vijayawada", "region": "AndhraPradesh", "wk13Revenue": 4916037.360000004, "wk1Revenue": 3283090.79, "growth": -0.3321672417070489, "wk13Footfall": 4448, "wk1Footfall": 5394, "footfallGrowth": 0.21267985611510792, "wk13Invoices": 391, "wk1Invoices": 101, "invoiceGrowth": -0.7416879795396419, "wk13Conversion": 0.0879046762589928, "wk1Conversion": 0.018724508713385244, "conversionChange": -0.06918016754560756, "wk13Loan": 0.45454545454545453, "wk1Loan": 0.5192307692307693, "iphoneLoan": 0.4864864864864865, "wk13Trade": 0.05405405405405406, "wk1Trade": 0.08823529411764706, "area": 733.8, "wk1RevSqFt": 6699.424039247758, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 41, "reRank": 39}, {"arm": "Abdul Khadeer", "store": "Aptronix GVK One", "region": "Telangana", "wk13Revenue": 2238297.2999999993, "wk1Revenue": 1513882.5, "growth": -0.32364547819451844, "wk13Footfall": 0, "wk1Footfall": 0, "footfallGrowth": 0, "wk13Invoices": 141, "wk1Invoices": 32, "invoiceGrowth": -0.7730496453900709, "wk13Conversion": 0, "wk1Conversion": 0, "conversionChange": 0, "wk13Loan": 0, "wk1Loan": 0, "iphoneLoan": 0, "wk13Trade": 0.06666666666666667, "wk1Trade": 0.14285714285714285, "area": 1072.7, "wk1RevSqFt": 2086.6013796960933, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 26.2, "reRank": 64}, {"arm": "Abdul Khadeer", "store": "Aptronix Gachibowli", "region": "Telangana", "wk13Revenue": 8891075.19999999, "wk1Revenue": 6454645.49, "growth": -0.2740309417245726, "wk13Footfall": 9252, "wk1Footfall": 11210, "footfallGrowth": 0.2116299178555988, "wk13Invoices": 776, "wk1Invoices": 217, "invoiceGrowth": -0.720360824742268, "wk13Conversion": 0.08387375702550799, "wk1Conversion": 0.01935771632471008, "conversionChange": -0.06451604070079792, "wk13Loan": 0.03333333333333333, "wk1Loan": 0.010869565217391304, "iphoneLoan": 0.05660377358490566, "wk13Trade": 0.24528301886792453, "wk1Trade": 0.3508771929824561, "area": 890, "wk1RevSqFt": 9989.972134831449, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 31.7, "reRank": 58}, {"arm": "Mohit Kumar", "store": "Aptronix Galleria", "region": "Gurugram", "wk13Revenue": 6308856.05, "wk1Revenue": 5393410.3, "growth": -0.14510487206313735, "wk13Footfall": 6688, "wk1Footfall": 8340, "footfallGrowth": 0.24700956937799043, "wk13Invoices": 452, "wk1Invoices": 124, "invoiceGrowth": -0.7256637168141593, "wk13Conversion": 0.06758373205741627, "wk1Conversion": 0.01486810551558753, "conversionChange": -0.05271562654182874, "wk13Loan": 0.041666666666666664, "wk1Loan": 0.016129032258064516, "iphoneLoan": 0.044444444444444446, "wk13Trade": 0.28888888888888886, "wk1Trade": 0.25, "area": 1276.13, "wk1RevSqFt": 4943.740880631283, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 38, "reRank": 46}, {"arm": "Sahil Khatuja", "store": "Aptronix Gatlodia", "region": "Ahmedabad", "wk13Revenue": 2425128.900000002, "wk1Revenue": 1929369.4000000001, "growth": -0.2044260410240467, "wk13Footfall": 2497, "wk1Footfall": 2821, "footfallGrowth": 0.12975570684821786, "wk13Invoices": 288, "wk1Invoices": 81, "invoiceGrowth": -0.71875, "wk13Conversion": 0.11533840608730477, "wk1Conversion": 0.02871322226160936, "conversionChange": -0.08662518382569541, "wk13Loan": 0.13793103448275862, "wk1Loan": 0.16, "iphoneLoan": 0.09523809523809523, "wk13Trade": 0.047619047619047616, "wk1Trade": 0.045454545454545456, "area": 0, "wk1RevSqFt": 0, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 24.2, "reRank": 66}, {"arm": "Stalin Tadikamalla", "store": "Aptronix Guntur", "region": "AndhraPradesh", "wk13Revenue": 3992480.5900000003, "wk1Revenue": 2675472.3, "growth": -0.329872183548925, "wk13Footfall": 4174, "wk1Footfall": 5039, "footfallGrowth": 0.20723526593195976, "wk13Invoices": 354, "wk1Invoices": 78, "invoiceGrowth": -0.7796610169491526, "wk13Conversion": 0.08481073310972688, "wk1Conversion": 0.015479261758285375, "conversionChange": -0.0693314713514415, "wk13Loan": 0.29411764705882354, "wk1Loan": 0.36585365853658536, "iphoneLoan": 0.4, "wk13Trade": 0.2, "wk1Trade": 0.03333333333333333, "area": 1255.9, "wk1RevSqFt": 3178.979687873238, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 40.7, "reRank": 42}, {"arm": "Naveen Bandi", "store": "Aptronix Hanamkonda", "region": "Telangana", "wk13Revenue": 5313997.000000008, "wk1Revenue": 3368076.75, "growth": -0.3661876832071989, "wk13Footfall": 0, "wk1Footfall": 0, "footfallGrowth": 0, "wk13Invoices": 656, "wk1Invoices": 103, "invoiceGrowth": -0.8429878048780488, "wk13Conversion": 0, "wk1Conversion": 0, "conversionChange": 0, "wk13Loan": 0.3953488372093023, "wk1Loan": 0.43859649122807015, "iphoneLoan": 0.46875, "wk13Trade": 0.03125, "wk1Trade": 0.07692307692307693, "area": 1680, "wk1RevSqFt": 3163.0934523809574, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 40.5, "reRank": 43}, {"arm": "Abdul Khadeer", "store": "Aptronix Himayath Nagar", "region": "Telangana", "wk13Revenue": 6922432.300000009, "wk1Revenue": 6597903.04, "growth": -0.04688081384342446, "wk13Footfall": 7539, "wk1Footfall": 8995, "footfallGrowth": 0.19312906220984216, "wk13Invoices": 851, "wk1Invoices": 211, "invoiceGrowth": -0.7520564042303173, "wk13Conversion": 0.1128796922668789, "wk1Conversion": 0.023457476375764313, "conversionChange": -0.08942221589111458, "wk13Loan": 0.17204301075268819, "wk1Loan": 0.2222222222222222, "iphoneLoan": 0.21818181818181817, "wk13Trade": 0.16363636363636364, "wk1Trade": 0.23809523809523808, "area": 1287, "wk1RevSqFt": 5378.735275835283, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 52.2, "reRank": 21}, {"arm": "V Abhilash", "store": "Aptronix Inorbit Mall", "region": "Telangana", "wk13Revenue": 15502366.65000005, "wk1Revenue": 12442283.05, "growth": -0.19739460877736625, "wk13Footfall": 32324, "wk1Footfall": 37768, "footfallGrowth": 0.16841975003093676, "wk13Invoices": 1575, "wk1Invoices": 363, "invoiceGrowth": -0.7695238095238095, "wk13Conversion": 0.0487254052716248, "wk1Conversion": 0.009611311162889219, "conversionChange": -0.03911409410873558, "wk13Loan": 0.040229885057471264, "wk1Loan": 0.017045454545454544, "iphoneLoan": 0.06976744186046512, "wk13Trade": 0.5465116279069767, "wk1Trade": 0.4810126582278481, "area": 1533, "wk1RevSqFt": 10112.437475538194, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 34.1, "reRank": 52}, {"arm": "Mohammed Gouse", "store": "Aptronix Jubilee Hills", "region": "Telangana", "wk13Revenue": 6148994.220000008, "wk1Revenue": 3821446.47, "growth": -0.3785249533052911, "wk13Footfall": 3857, "wk1Footfall": 4513, "footfallGrowth": 0.170080373347161, "wk13Invoices": 438, "wk1Invoices": 110, "invoiceGrowth": -0.7488584474885844, "wk13Conversion": 0.11355976147264714, "wk1Conversion": 0.02437403057832927, "conversionChange": -0.08918573089431786, "wk13Loan": 0.043478260869565216, "wk1Loan": 0.038461538461538464, "iphoneLoan": 0.04, "wk13Trade": 0.08, "wk1Trade": 0.23529411764705882, "area": 1729, "wk1RevSqFt": 3556.387634470797, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 24.9, "reRank": 65}, {"arm": "Karthik Lingesh", "store": "Aptronix KNK Chennai", "region": "Tamil Nadu", "wk13Revenue": 3851696.4499999993, "wk1Revenue": 2510680.8000000003, "growth": -0.34816234025918613, "wk13Footfall": 3639, "wk1Footfall": 4312, "footfallGrowth": 0.18494091783456992, "wk13Invoices": 263, "wk1Invoices": 59, "invoiceGrowth": -0.7756653992395437, "wk13Conversion": 0.07227260236328661, "wk1Conversion": 0.01368274582560297, "conversionChange": -0.05858985653768364, "wk13Loan": 0.15625, "wk1Loan": 0.1282051282051282, "iphoneLoan": 0.25, "wk13Trade": 0.25, "wk1Trade": 0.24, "area": 978.4, "wk1RevSqFt": 3936.729813982011, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 35.6, "reRank": 50}, {"arm": "Stalin Tadikamalla", "store": "Aptronix Kakinada", "region": "AndhraPradesh", "wk13Revenue": 2801336.600000003, "wk1Revenue": 2139841.3, "growth": -0.23613560041303225, "wk13Footfall": 7146, "wk1Footfall": 8568, "footfallGrowth": 0.19899244332493704, "wk13Invoices": 438, "wk1Invoices": 92, "invoiceGrowth": -0.7899543378995434, "wk13Conversion": 0.061293031066330814, "wk1Conversion": 0.010737628384687208, "conversionChange": -0.0505554026816436, "wk13Loan": 0.5172413793103449, "wk1Loan": 0.3888888888888889, "iphoneLoan": 0.5909090909090909, "wk13Trade": 0.045454545454545456, "wk1Trade": 0.038461538461538464, "area": 515, "wk1RevSqFt": 5439.488543689326, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 40.8, "reRank": 40}, {"arm": "Lalit Gupta", "store": "Aptronix Kamla Nagar", "region": "Delhi", "wk13Revenue": 4977360.900000002, "wk1Revenue": 5326231.15, "growth": 0.07009141129388427, "wk13Footfall": 6310, "wk1Footfall": 7680, "footfallGrowth": 0.21711568938193343, "wk13Invoices": 423, "wk1Invoices": 127, "invoiceGrowth": -0.6997635933806147, "wk13Conversion": 0.06703645007923931, "wk1Conversion": 0.016536458333333334, "conversionChange": -0.05049999174590597, "wk13Loan": 0.058823529411764705, "wk1Loan": 0.0967741935483871, "iphoneLoan": 0.07142857142857142, "wk13Trade": 0.07142857142857142, "wk1Trade": 0.058823529411764705, "area": 868.3, "wk1RevSqFt": 5732.305539560063, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 48, "reRank": 26}, {"arm": "Abdul Khadeer", "store": "Aptronix Khammam", "region": "Telangana", "wk13Revenue": 4128568.349999999, "wk1Revenue": 3464642.0500000003, "growth": -0.16081271852989887, "wk13Footfall": 6099, "wk1Footfall": 7351, "footfallGrowth": 0.20527955402525003, "wk13Invoices": 493, "wk1Invoices": 140, "invoiceGrowth": -0.716024340770791, "wk13Conversion": 0.08083292343007051, "wk1Conversion": 0.019045027887362263, "conversionChange": -0.06178789554270825, "wk13Loan": 0.5306122448979592, "wk1Loan": 0.4166666666666667, "iphoneLoan": 0.6666666666666666, "wk13Trade": 0, "wk1Trade": 0.03125, "area": 1980.8, "wk1RevSqFt": 2084.2933915589656, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 33.5, "reRank": 54}, {"arm": "Poornesh", "store": "Aptronix Kochi", "region": "Karnataka", "wk13Revenue": 3398241.3, "wk1Revenue": 2033965.4, "growth": -0.40146528146779925, "wk13Footfall": 2163, "wk1Footfall": 2610, "footfallGrowth": 0.20665742024965325, "wk13Invoices": 211, "wk1Invoices": 48, "invoiceGrowth": -0.7725118483412322, "wk13Conversion": 0.09754969949144707, "wk1Conversion": 0.01839080459770115, "conversionChange": -0.07915889489374592, "wk13Loan": 0.25925925925925924, "wk1Loan": 0.3684210526315789, "iphoneLoan": 0.2727272727272727, "wk13Trade": 0, "wk1Trade": 0.10344827586206896, "area": 820, "wk1RevSqFt": 4144.196707317073, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 30.5, "reRank": 60}, {"arm": "Naveen Bandi", "store": "Aptronix Kompally", "region": "Telangana", "wk13Revenue": 6706611.350000005, "wk1Revenue": 5645525.4799999995, "growth": -0.1582149038649757, "wk13Footfall": 0, "wk1Footfall": 0, "footfallGrowth": 0, "wk13Invoices": 772, "wk1Invoices": 195, "invoiceGrowth": -0.7474093264248705, "wk13Conversion": 0, "wk1Conversion": 0, "conversionChange": 0, "wk13Loan": 0.21052631578947367, "wk1Loan": 0.2328767123287671, "iphoneLoan": 0.28846153846153844, "wk13Trade": 0.15384615384615385, "wk1Trade": 0.08, "area": 837, "wk1RevSqFt": 8012.677837514941, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 56.4, "reRank": 14}, {"arm": "V Abhilash", "store": "Aptronix Kondapur", "region": "Telangana", "wk13Revenue": 2083638.0899999978, "wk1Revenue": 4036053.5, "growth": 0.9370223261756576, "wk13Footfall": 4904, "wk1Footfall": 5751, "footfallGrowth": 0.17271615008156607, "wk13Invoices": 278, "wk1Invoices": 74, "invoiceGrowth": -0.7338129496402878, "wk13Conversion": 0.0566884176182708, "wk1Conversion": 0.012867327421318032, "conversionChange": -0.04382109019695277, "wk13Loan": 0.022222222222222223, "wk1Loan": 0.125, "iphoneLoan": 0, "wk13Trade": 0, "wk1Trade": 0.10526315789473684, "area": 1138, "wk1RevSqFt": 1830.9649297012284, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 47.3, "reRank": 29}, {"arm": "V Abhilash", "store": "Aptronix Kukatpally", "region": "Telangana", "wk13Revenue": 10193916.279999997, "wk1Revenue": 8876043.56, "growth": -0.12928031620051694, "wk13Footfall": 12518, "wk1Footfall": 14812, "footfallGrowth": 0.18325611119987217, "wk13Invoices": 1027, "wk1Invoices": 234, "invoiceGrowth": -0.7721518987341772, "wk13Conversion": 0.08204185972200032, "wk1Conversion": 0.01579800162030786, "conversionChange": -0.06624385810169245, "wk13Loan": 0.31313131313131315, "wk1Loan": 0.21621621621621623, "iphoneLoan": 0.3717948717948718, "wk13Trade": 0.07692307692307693, "wk1Trade": 0.11428571428571428, "area": 790, "wk1RevSqFt": 12903.691493670884, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 50.3, "reRank": 23}, {"arm": "Karthik Lingesh", "store": "Aptronix Lakshmi Mills", "region": "Tamil Nadu", "wk13Revenue": 4182037.340000001, "wk1Revenue": 3079315.1999999997, "growth": -0.26368060596991244, "wk13Footfall": 3815, "wk1Footfall": 4568, "footfallGrowth": 0.19737876802096985, "wk13Invoices": 352, "wk1Invoices": 81, "invoiceGrowth": -0.7698863636363636, "wk13Conversion": 0.09226736566186107, "wk1Conversion": 0.017732049036777584, "conversionChange": -0.07453531662508349, "wk13Loan": 0.13513513513513514, "wk1Loan": 0.13953488372093023, "iphoneLoan": 0.2, "wk13Trade": 0.25, "wk1Trade": 0.1, "area": 861.8, "wk1RevSqFt": 4852.677349733118, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 36.9, "reRank": 48}, {"arm": "Lalit Gupta", "store": "Aptronix Logix", "region": "Noida", "wk13Revenue": 8763455.600000005, "wk1Revenue": 9020678.35, "growth": 0.029351749097695463, "wk13Footfall": 22359, "wk1Footfall": 26700, "footfallGrowth": 0.1941500067087079, "wk13Invoices": 817, "wk1Invoices": 198, "invoiceGrowth": -0.7576499388004896, "wk13Conversion": 0.03654009571089942, "wk1Conversion": 0.007415730337078652, "conversionChange": -0.029124365373820765, "wk13Loan": 0.14166666666666666, "wk1Loan": 0.10526315789473684, "iphoneLoan": 0.19444444444444445, "wk13Trade": 0.09722222222222222, "wk1Trade": 0.2647058823529412, "area": 1746.3, "wk1RevSqFt": 5018.299032239595, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 58.7, "reRank": 11}, {"arm": "Subhojit Kundu", "store": "Aptronix MBD", "region": "Ludhiana", "wk13Revenue": 4911937.650000007, "wk1Revenue": 3348994.5500000003, "growth": -0.3181927808061661, "wk13Footfall": 4625, "wk1Footfall": 5920, "footfallGrowth": 0.28, "wk13Invoices": 401, "wk1Invoices": 99, "invoiceGrowth": -0.7531172069825436, "wk13Conversion": 0.08670270270270271, "wk1Conversion": 0.016722972972972972, "conversionChange": -0.06997972972972974, "wk13Loan": 0.1016949152542373, "wk1Loan": 0.05454545454545454, "iphoneLoan": 0.1, "wk13Trade": 0.06666666666666667, "wk1Trade": 0.06451612903225806, "area": 974.8, "wk1RevSqFt": 5038.918393516626, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 30.6, "reRank": 59}, {"arm": "Vishal Nadar", "store": "Aptronix MG Bangalore", "region": "Karnataka", "wk13Revenue": 3124800.499999999, "wk1Revenue": 4843836.649999999, "growth": 0.5501266880877678, "wk13Footfall": 6008, "wk1Footfall": 7379, "footfallGrowth": 0.22819573901464713, "wk13Invoices": 388, "wk1Invoices": 107, "invoiceGrowth": -0.7242268041237113, "wk13Conversion": 0.06458055925432757, "wk1Conversion": 0.014500609838731535, "conversionChange": -0.050079949415596035, "wk13Loan": 0, "wk1Loan": 0.02564102564102564, "iphoneLoan": 0, "wk13Trade": 0.14285714285714285, "wk1Trade": 0.08333333333333333, "area": 2214.4, "wk1RevSqFt": 1411.127393424855, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 52, "reRank": 22}, {"arm": "Syed Yusuf", "store": "Aptronix MLBR Vijayawada", "region": "AndhraPradesh", "wk13Revenue": 8975284.33, "wk1Revenue": 7869888.71, "growth": -0.1231599556467756, "wk13Footfall": 10535, "wk1Footfall": 12959, "footfallGrowth": 0.23009017560512576, "wk13Invoices": 913, "wk1Invoices": 207, "invoiceGrowth": -0.7732749178532311, "wk13Conversion": 0.08666350261034646, "wk1Conversion": 0.01597345474187823, "conversionChange": -0.07069004786846822, "wk13Loan": 0.27472527472527475, "wk1Loan": 0.27, "iphoneLoan": 0.34615384615384615, "wk13Trade": 0.17307692307692307, "wk1Trade": 0.16666666666666666, "area": 968, "wk1RevSqFt": 9271.987944214876, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 53.2, "reRank": 19}, {"arm": "Syed Yusuf", "store": "Aptronix Madhurawada", "region": "AndhraPradesh", "wk13Revenue": 3700588.4000000013, "wk1Revenue": 3364663.88, "growth": -0.09077597497738503, "wk13Footfall": 4300, "wk1Footfall": 5031, "footfallGrowth": 0.17, "wk13Invoices": 402, "wk1Invoices": 84, "invoiceGrowth": -0.7910447761194029, "wk13Conversion": 0.09348837209302326, "wk1Conversion": 0.016696481812760882, "conversionChange": -0.07679189028026237, "wk13Loan": 0.20930232558139536, "wk1Loan": 0.3488372093023256, "iphoneLoan": 0.17142857142857143, "wk13Trade": 0.05714285714285714, "wk1Trade": 0.14285714285714285, "area": 1658, "wk1RevSqFt": 2231.9592279855256, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 41.8, "reRank": 37}, {"arm": "V Abhilash", "store": "Aptronix Madinaguda", "region": "Telangana", "wk13Revenue": 6443800.780000022, "wk1Revenue": 4585761.67, "growth": -0.28834521324230256, "wk13Footfall": 0, "wk1Footfall": 0, "footfallGrowth": 0, "wk13Invoices": 661, "wk1Invoices": 170, "invoiceGrowth": -0.7428139183055976, "wk13Conversion": 0, "wk1Conversion": 0, "conversionChange": 0, "wk13Loan": 0.08955223880597014, "wk1Loan": 0.0821917808219178, "iphoneLoan": 0.1388888888888889, "wk13Trade": 0.08333333333333333, "wk1Trade": 0.14705882352941177, "area": 1114, "wk1RevSqFt": 5784.381310592479, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 41.2, "reRank": 38}, {"arm": "Sahil Khatuja", "store": "Aptronix Maninagar", "region": "Ahmedabad", "wk13Revenue": 3977887.6500000004, "wk1Revenue": 7919080.55, "growth": 0.9907753176488027, "wk13Footfall": 8299, "wk1Footfall": 10392, "footfallGrowth": 0.25219906012772625, "wk13Invoices": 552, "wk1Invoices": 182, "invoiceGrowth": -0.6702898550724637, "wk13Conversion": 0.06651403783588385, "wk1Conversion": 0.017513471901462664, "conversionChange": -0.04900056593442118, "wk13Loan": 0.3333333333333333, "wk1Loan": 0.24444444444444444, "iphoneLoan": 0.35365853658536583, "wk13Trade": 0.17073170731707318, "wk1Trade": 0.08823529411764706, "area": 4194, "wk1RevSqFt": 948.4710658082977, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 68, "reRank": 4}, {"arm": "Karthik Lingesh", "store": "Aptronix Marina Mall", "region": "Tamil Nadu", "wk13Revenue": 4292439.309999999, "wk1Revenue": 4185872.4, "growth": -0.02482665503312586, "wk13Footfall": 9798, "wk1Footfall": 11355, "footfallGrowth": 0.15890998162890385, "wk13Invoices": 446, "wk1Invoices": 112, "invoiceGrowth": -0.7488789237668162, "wk13Conversion": 0.04551949377423964, "wk1Conversion": 0.009863496257155439, "conversionChange": -0.035655997517084204, "wk13Loan": 0.0967741935483871, "wk1Loan": 0.10869565217391304, "iphoneLoan": 0.14285714285714285, "wk13Trade": 0.16666666666666666, "wk1Trade": 0.21212121212121213, "area": 761, "wk1RevSqFt": 5640.524717477002, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 48.3, "reRank": 25}, {"arm": "Vishal Nadar", "store": "Aptronix Mysore", "region": "Karnataka", "wk13Revenue": 2197509.55, "wk1Revenue": 2990147.9499999997, "growth": 0.3606985007186886, "wk13Footfall": 3289, "wk1Footfall": 3951, "footfallGrowth": 0.20127698388567955, "wk13Invoices": 256, "wk1Invoices": 58, "invoiceGrowth": -0.7734375, "wk13Conversion": 0.07783520826999088, "wk1Conversion": 0.014679827891672994, "conversionChange": -0.06315538037831789, "wk13Loan": 0.3611111111111111, "wk1Loan": 0.16, "iphoneLoan": 0.40625, "wk13Trade": 0.0625, "wk1Trade": 0.19047619047619047, "area": 1369, "wk1RevSqFt": 1605.1932432432432, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 64.4, "reRank": 6}, {"arm": "Srinivas Vennela", "store": "Aptronix NAD", "region": "AndhraPradesh", "wk13Revenue": 5405784.450000007, "wk1Revenue": 5246976.25, "growth": -0.02937745695724263, "wk13Footfall": 6311, "wk1Footfall": 7473, "footfallGrowth": 0.18412295991126604, "wk13Invoices": 416, "wk1Invoices": 105, "invoiceGrowth": -0.7475961538461539, "wk13Conversion": 0.06591665346220885, "wk1Conversion": 0.014050582095543959, "conversionChange": -0.051866071366664886, "wk13Loan": 0.34328358208955223, "wk1Loan": 0.36923076923076925, "iphoneLoan": 0.36065573770491804, "wk13Trade": 0.11475409836065574, "wk1Trade": 0.1509433962264151, "area": 1171, "wk1RevSqFt": 4616.382963279254, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 58.4, "reRank": 13}, {"arm": "Sahil Khatuja", "store": "Aptronix Naroda", "region": "Ahmedabad", "wk13Revenue": 4033389.8600000017, "wk1Revenue": 4276060.7, "growth": 0.06016548075518749, "wk13Footfall": 5198, "wk1Footfall": 6480, "footfallGrowth": 0.24663332050788764, "wk13Invoices": 312, "wk1Invoices": 98, "invoiceGrowth": -0.6858974358974359, "wk13Conversion": 0.060023085802231625, "wk1Conversion": 0.015123456790123457, "conversionChange": -0.04489962901210817, "wk13Loan": 0.423728813559322, "wk1Loan": 0.40384615384615385, "iphoneLoan": 0.44642857142857145, "wk13Trade": 0.07142857142857142, "wk1Trade": 0.043478260869565216, "area": 1830, "wk1RevSqFt": 2204.038174863389, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 56.4, "reRank": 14}, {"arm": "Syed Yusuf", "store": "Aptronix Nellore", "region": "AndhraPradesh", "wk13Revenue": 5867516.780000005, "wk1Revenue": 3994360.0900000003, "growth": -0.31924181220662873, "wk13Footfall": 4709, "wk1Footfall": 5332, "footfallGrowth": 0.13229985134848163, "wk13Invoices": 524, "wk1Invoices": 126, "invoiceGrowth": -0.7595419847328244, "wk13Conversion": 0.11127627946485454, "wk1Conversion": 0.023630907726931733, "conversionChange": -0.0876453717379228, "wk13Loan": 0.4576271186440678, "wk1Loan": 0.4383561643835616, "iphoneLoan": 0.5116279069767442, "wk13Trade": 0.09302325581395349, "wk1Trade": 0, "area": 1100, "wk1RevSqFt": 5334.106163636368, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 43.9, "reRank": 35}, {"arm": "Sahil Khatuja", "store": "Aptronix Nikol", "region": "Ahmedabad", "wk13Revenue": 2608632.1000000015, "wk1Revenue": 3226800.6999999997, "growth": 0.2369704029939668, "wk13Footfall": 5397, "wk1Footfall": 6561, "footfallGrowth": 0.21567537520844915, "wk13Invoices": 336, "wk1Invoices": 102, "invoiceGrowth": -0.6964285714285714, "wk13Conversion": 0.0622568093385214, "wk1Conversion": 0.015546410608139003, "conversionChange": -0.0467103987303824, "wk13Loan": 0.09302325581395349, "wk1Loan": 0.03333333333333333, "iphoneLoan": 0.10810810810810811, "wk13Trade": 0.02702702702702703, "wk1Trade": 0.045454545454545456, "area": 0, "wk1RevSqFt": 0, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 44.2, "reRank": 33}, {"arm": "Karthik Lingesh", "store": "Aptronix PMC Chennai", "region": "Tamil Nadu", "wk13Revenue": 19204045.41999997, "wk1Revenue": 20974078.55, "growth": 0.09216980543883943, "wk13Footfall": 34873, "wk1Footfall": 41244, "footfallGrowth": 0.1826914805150116, "wk13Invoices": 1827, "wk1Invoices": 478, "invoiceGrowth": -0.7383689107827038, "wk13Conversion": 0.05239010122444298, "wk1Conversion": 0.011589564542721366, "conversionChange": -0.040800536681721615, "wk13Loan": 0.15355805243445692, "wk1Loan": 0.08878504672897196, "iphoneLoan": 0.21052631578947367, "wk13Trade": 0.25, "wk1Trade": 0.2605042016806723, "area": 3099, "wk1RevSqFt": 6196.852345918028, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 60.7, "reRank": 9}, {"arm": "Deepak Thakur", "store": "Aptronix Palladium", "region": "Mumbai", "wk13Revenue": 13366447.100000018, "wk1Revenue": 11523241.1, "growth": -0.1378979758951813, "wk13Footfall": 30970, "wk1Footfall": 36152, "footfallGrowth": 0.16732321601549888, "wk13Invoices": 1416, "wk1Invoices": 344, "invoiceGrowth": -0.7570621468926554, "wk13Conversion": 0.04572166612851146, "wk1Conversion": 0.009515379508740872, "conversionChange": -0.036206286619770586, "wk13Loan": 0.056962025316455694, "wk1Loan": 0.06474820143884892, "iphoneLoan": 0.0851063829787234, "wk13Trade": 0.1595744680851064, "wk1Trade": 0.21428571428571427, "area": 3280, "wk1RevSqFt": 4075.1363109756153, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 37.5, "reRank": 47}, {"arm": "Abdul Khadeer", "store": "Aptronix Panjagutta", "region": "Telangana", "wk13Revenue": 2098923.7, "wk1Revenue": 2654154.4, "growth": 0.2645311499412769, "wk13Footfall": 4017, "wk1Footfall": 4944, "footfallGrowth": 0.23076923076923078, "wk13Invoices": 251, "wk1Invoices": 54, "invoiceGrowth": -0.7848605577689243, "wk13Conversion": 0.062484441125217824, "wk1Conversion": 0.010922330097087379, "conversionChange": -0.05156211102813044, "wk13Loan": 0.06666666666666667, "wk1Loan": 0.15384615384615385, "iphoneLoan": 0.09090909090909091, "wk13Trade": 0.045454545454545456, "wk1Trade": 0, "area": 619, "wk1RevSqFt": 3390.829886914378, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 55.6, "reRank": 16}, {"arm": "Naveen Bandi", "store": "Aptronix Parklane", "region": "Telangana", "wk13Revenue": 5031498.70000001, "wk1Revenue": 4173645.1, "growth": -0.17049663552531744, "wk13Footfall": 6639, "wk1Footfall": 7820, "footfallGrowth": 0.17788823618014762, "wk13Invoices": 559, "wk1Invoices": 141, "invoiceGrowth": -0.7477638640429338, "wk13Conversion": 0.08419942762464226, "wk1Conversion": 0.0180306905370844, "conversionChange": -0.06616873708755786, "wk13Loan": 0.22033898305084745, "wk1Loan": 0.2413793103448276, "iphoneLoan": 0.2619047619047619, "wk13Trade": 0.09523809523809523, "wk1Trade": 0.15, "area": 680, "wk1RevSqFt": 7399.262794117662, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 48, "reRank": 26}, {"arm": "Subhojit Kundu", "store": "Aptronix Pavillion", "region": "Ludhiana", "wk13Revenue": 3746818.4999999995, "wk1Revenue": 3762108.58, "growth": 0.004080816831666797, "wk13Footfall": 6837, "wk1Footfall": 8150, "footfallGrowth": 0.19204329384232852, "wk13Invoices": 318, "wk1Invoices": 95, "invoiceGrowth": -0.7012578616352201, "wk13Conversion": 0.046511627906976744, "wk1Conversion": 0.011656441717791411, "conversionChange": -0.03485518618918533, "wk13Loan": 0.08888888888888889, "wk1Loan": 0.09523809523809523, "iphoneLoan": 0.10344827586206896, "wk13Trade": 0.06896551724137931, "wk1Trade": 0, "area": 1717, "wk1RevSqFt": 2182.1889924286543, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 44.1, "reRank": 34}, {"arm": "Lalit Gupta", "store": "Aptronix Promenade", "region": "Delhi", "wk13Revenue": 4781036.000000002, "wk1Revenue": 3342173.7, "growth": -0.3009519903217631, "wk13Footfall": 7038, "wk1Footfall": 8252, "footfallGrowth": 0.17249218527990906, "wk13Invoices": 439, "wk1Invoices": 107, "invoiceGrowth": -0.7562642369020501, "wk13Conversion": 0.062375674907644216, "wk1Conversion": 0.01296655356277266, "conversionChange": -0.049409121344871555, "wk13Loan": 0.045454545454545456, "wk1Loan": 0, "iphoneLoan": 0.06896551724137931, "wk13Trade": 0.2413793103448276, "wk1Trade": 0.14285714285714285, "area": 838.9, "wk1RevSqFt": 5699.172726189059, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 32.1, "reRank": 56}, {"arm": "Mohammed Gouse", "store": "Aptronix Sarath Capital City", "region": "Telangana", "wk13Revenue": 20661359.029999983, "wk1Revenue": 16465647.15, "growth": -0.20307046956145874, "wk13Footfall": 57814, "wk1Footfall": 68217, "footfallGrowth": 0.17993911509323002, "wk13Invoices": 2010, "wk1Invoices": 421, "invoiceGrowth": -0.790547263681592, "wk13Conversion": 0.03476666551354343, "wk1Conversion": 0.006171482181860827, "conversionChange": -0.028595183331682605, "wk13Loan": 0.13004484304932734, "wk1Loan": 0.12149532710280374, "iphoneLoan": 0.15625, "wk13Trade": 0.2734375, "wk1Trade": 0.25663716814159293, "area": 5252, "wk1RevSqFt": 3933.9982920792045, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 39.4, "reRank": 45}, {"arm": "Abdul Khadeer", "store": "Aptronix Shaikpet", "region": "Telangana", "wk13Revenue": 3826333.5899999994, "wk1Revenue": 4777926.78, "growth": 0.2486958252900268, "wk13Footfall": 4689, "wk1Footfall": 5585, "footfallGrowth": 0.1910855193004905, "wk13Invoices": 418, "wk1Invoices": 120, "invoiceGrowth": -0.7129186602870813, "wk13Conversion": 0.0891448069950949, "wk1Conversion": 0.021486123545210387, "conversionChange": -0.06765868344988452, "wk13Loan": 0.125, "wk1Loan": 0.12195121951219512, "iphoneLoan": 0.15789473684210525, "wk13Trade": 0.13157894736842105, "wk1Trade": 0.06666666666666667, "area": 1822, "wk1RevSqFt": 2100.073320526893, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 61.4, "reRank": 8}, {"arm": "Mohammed Gouse", "store": "Aptronix Siddipet", "region": "Telangana", "wk13Revenue": 2864201.9000000027, "wk1Revenue": 1557134.3800000001, "growth": -0.45634615353058783, "wk13Footfall": 4645, "wk1Footfall": 5640, "footfallGrowth": 0.21420882669537136, "wk13Invoices": 307, "wk1Invoices": 70, "invoiceGrowth": -0.7719869706840391, "wk13Conversion": 0.06609257265877287, "wk1Conversion": 0.012411347517730497, "conversionChange": -0.05368122514104237, "wk13Loan": 0.875, "wk1Loan": 0.6333333333333333, "iphoneLoan": 1, "wk13Trade": 0, "wk1Trade": 0.04, "area": 1125, "wk1RevSqFt": 2545.957244444447, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 27.6, "reRank": 63}, {"arm": "Mohit Kumar", "store": "Aptronix SouthEx", "region": "Delhi", "wk13Revenue": 4188578.909999998, "wk1Revenue": 5580209, "growth": 0.3322439710226213, "wk13Footfall": 5726, "wk1Footfall": 6873, "footfallGrowth": 0.2003143555710793, "wk13Invoices": 377, "wk1Invoices": 98, "invoiceGrowth": -0.7400530503978779, "wk13Conversion": 0.06584002794271743, "wk1Conversion": 0.014258693438091082, "conversionChange": -0.05158133450462635, "wk13Loan": 0.03125, "wk1Loan": 0, "iphoneLoan": 0.024390243902439025, "wk13Trade": 0.17073170731707318, "wk1Trade": 0.40625, "area": 853, "wk1RevSqFt": 4910.409038686985, "rag": "Amber", "segment": "High revenue / low conversion", "action": "Monitor and improve attach/conversion", "reScore": 59.3, "reRank": 10}, {"arm": "Subhojit Kundu", "store": "Aptronix Sunview", "region": "Ludhiana", "wk13Revenue": 2973326.749999999, "wk1Revenue": 1607531.55, "growth": -0.4593491784917347, "wk13Footfall": 5645, "wk1Footfall": 6719, "footfallGrowth": 0.19025686448184234, "wk13Invoices": 246, "wk1Invoices": 55, "invoiceGrowth": -0.7764227642276422, "wk13Conversion": 0.04357838795394154, "wk1Conversion": 0.008185741925881828, "conversionChange": -0.035392646028059714, "wk13Loan": 0.08333333333333333, "wk1Loan": 0.125, "iphoneLoan": 0.1, "wk13Trade": 0.3, "wk1Trade": 0.25, "area": 849, "wk1RevSqFt": 3502.151648998821, "rag": "Red", "segment": "Structural issue", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 28.9, "reRank": 61}, {"arm": "Vishal Nadar", "store": "Aptronix VJN Bangalore", "region": "Karnataka", "wk13Revenue": 5308183.3500000145, "wk1Revenue": 4567252.85, "growth": -0.1395826879265602, "wk13Footfall": 5446, "wk1Footfall": 6550, "footfallGrowth": 0.2027175908923981, "wk13Invoices": 412, "wk1Invoices": 88, "invoiceGrowth": -0.7864077669902912, "wk13Conversion": 0.07565185457216306, "wk1Conversion": 0.013435114503816794, "conversionChange": -0.062216740068346266, "wk13Loan": 0.3148148148148148, "wk1Loan": 0.38596491228070173, "iphoneLoan": 0.35714285714285715, "wk13Trade": 0.047619047619047616, "wk1Trade": 0.02564102564102564, "area": 1284, "wk1RevSqFt": 4134.099182243002, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 44.8, "reRank": 32}, {"arm": "Karthik Lingesh", "store": "Aptronix VR CHENNAI", "region": "Tamil Nadu", "wk13Revenue": 14790656.600000013, "wk1Revenue": 12260431, "growth": -0.17106918701634993, "wk13Footfall": 0, "wk1Footfall": 12713, "footfallGrowth": 0, "wk13Invoices": 1230, "wk1Invoices": 318, "invoiceGrowth": -0.7414634146341463, "wk13Conversion": 0, "wk1Conversion": 0.0250137654369543, "conversionChange": 0.0250137654369543, "wk13Loan": 0.17575757575757575, "wk1Loan": 0.1437908496732026, "iphoneLoan": 0.22580645161290322, "wk13Trade": 0.22580645161290322, "wk1Trade": 0.19791666666666666, "area": 3113, "wk1RevSqFt": 4751.254930934793, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 61.6, "reRank": 7}, {"arm": "Naveen Bandi", "store": "Aptronix Vanasthalipuram", "region": "Telangana", "wk13Revenue": 6726043.700000018, "wk1Revenue": 5571436.449999999, "growth": -0.17166216895082254, "wk13Footfall": 10663, "wk1Footfall": 12680, "footfallGrowth": 0.18915877332833161, "wk13Invoices": 742, "wk1Invoices": 204, "invoiceGrowth": -0.7250673854447439, "wk13Conversion": 0.06958642033198913, "wk1Conversion": 0.016088328075709778, "conversionChange": -0.05349809225627935, "wk13Loan": 0.4, "wk1Loan": 0.4444444444444444, "iphoneLoan": 0.5, "wk13Trade": 0.18, "wk1Trade": 0.21428571428571427, "area": 1837, "wk1RevSqFt": 3661.4282525857475, "rag": "Amber", "segment": "Star", "action": "Monitor and improve attach/conversion", "reScore": 47.5, "reRank": 28}, {"arm": "Mohit Kumar", "store": "Aptronix Vegas", "region": "Delhi", "wk13Revenue": 12669354.810000021, "wk1Revenue": 11983885.950000001, "growth": -0.05410448047906701, "wk13Footfall": 22112, "wk1Footfall": 26279, "footfallGrowth": 0.1884497105643994, "wk13Invoices": 1116, "wk1Invoices": 250, "invoiceGrowth": -0.7759856630824373, "wk13Conversion": 0.050470332850940665, "wk1Conversion": 0.009513299592830777, "conversionChange": -0.040957033258109884, "wk13Loan": 0.1111111111111111, "wk1Loan": 0.20689655172413793, "iphoneLoan": 0.15454545454545454, "wk13Trade": 0.2, "wk1Trade": 0.25, "area": 1295, "wk1RevSqFt": 9783.285567567584, "rag": "Red", "segment": "High revenue / low conversion", "action": "Immediate ARM review + revenue/conversion recovery", "reScore": 46.4, "reRank": 30}, {"arm": "Sahil Khatuja", "store": "Aptronix Vijay Cross Road", "region": "Ahmedabad", "wk13Revenue": 2968022.370000001, "wk1Revenue": 2629222.55, "growth": -0.11415002239353106, "wk13Footfall": 1640, "wk1Footfall": 1857, "footfallGrowth": 0.1323170731707317, "wk13Invoices": 208, "wk1Invoices": 58, "invoiceGrowth": -0.7211538461538461, "wk13Conversion": 0.12682926829268293, "wk1Conversion": 0.031233171782444804, "conversionChange": -0.09559609651023812, "wk13Loan": 0.10256410256410256, "wk1Loan": 0.17142857142857143, "iphoneLoan": 0.12121212121212122, "wk13Trade": 0.09090909090909091, "wk1Trade": 0.0967741935483871, "area": 1372, "wk1RevSqFt": 2163.2816107871727, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 36.8, "reRank": 49}, {"arm": "Srinivas Vennela", "store": "Aptronix Vizianagaram", "region": "AndhraPradesh", "wk13Revenue": 3176158.5499999993, "wk1Revenue": 2395006.35, "growth": -0.24594244515910563, "wk13Footfall": 4644, "wk1Footfall": 5373, "footfallGrowth": 0.1569767441860465, "wk13Invoices": 420, "wk1Invoices": 93, "invoiceGrowth": -0.7785714285714286, "wk13Conversion": 0.09043927648578812, "wk1Conversion": 0.017308766052484645, "conversionChange": -0.07313051043330347, "wk13Loan": 0.3888888888888889, "wk1Loan": 0.4358974358974359, "iphoneLoan": 0.42857142857142855, "wk13Trade": 0.10714285714285714, "wk1Trade": 0.03333333333333333, "area": 1436, "wk1RevSqFt": 2211.809575208913, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 39.7, "reRank": 44}, {"arm": "Naveen Bandi", "store": "Aptronix Warangal", "region": "Telangana", "wk13Revenue": 4265627.300000004, "wk1Revenue": 2328887.4499999997, "growth": -0.45403400573697617, "wk13Footfall": 5073, "wk1Footfall": 6181, "footfallGrowth": 0.21841119653065247, "wk13Invoices": 410, "wk1Invoices": 83, "invoiceGrowth": -0.7975609756097561, "wk13Conversion": 0.0808200275970826, "wk1Conversion": 0.013428247856333926, "conversionChange": -0.06739177974074867, "wk13Loan": 0.6470588235294118, "wk1Loan": 0.6382978723404256, "iphoneLoan": 0.64, "wk13Trade": 0.04, "wk1Trade": 0.07692307692307693, "area": 998.9, "wk1RevSqFt": 4270.324657122839, "rag": "Amber", "segment": "Structural issue", "action": "Monitor and improve attach/conversion", "reScore": 34.6, "reRank": 51}, {"arm": "V Abhilash", "store": "Aptronix karimnagar", "region": "Telangana", "wk13Revenue": 4779408.650000004, "wk1Revenue": 4657580.45, "growth": -0.025490224611784098, "wk13Footfall": 5087, "wk1Footfall": 6160, "footfallGrowth": 0.21092982111264005, "wk13Invoices": 612, "wk1Invoices": 149, "invoiceGrowth": -0.7565359477124183, "wk13Conversion": 0.12030666404560644, "wk1Conversion": 0.02418831168831169, "conversionChange": -0.09611835235729475, "wk13Loan": 0.5555555555555556, "wk1Loan": 0.4, "iphoneLoan": 0.6382978723404256, "wk13Trade": 0.02127659574468085, "wk1Trade": 0.08571428571428572, "area": 702.2, "wk1RevSqFt": 6806.335303332389, "rag": "Amber", "segment": "Conversion-led opportunity", "action": "Monitor and improve attach/conversion", "reScore": 49.8, "reRank": 24}], "arms": [{"arm": "Abdul Khadeer", "stores": 6, "wk13Revenue": 28105630.439999994, "wk1Revenue": 25463154.26, "growth": -0.0940194593976876, "wk13Footfall": 31596, "wk1Footfall": 38085, "wk13Invoices": 2930, "wk1Invoices": 774, "wk13Conversion": 0.09273325737435119, "wk1Conversion": 0.02032296179598267, "conversionChange": -0.07241029557836852, "loan": 0.1546092092751079, "trade": 0.10876992366565354, "revSqFt": 3319.1884585804605, "rag": "Amber", "growthScore": 31.19610812046248, "conversionScore": 0, "loanScore": 61.843683710043166, "tradeScore": 100, "revSqFtScore": 85.7884857888916, "riskScore": 65, "reScore": 50.7}, {"arm": "Deepak Thakur", "stores": 2, "wk13Revenue": 18516634.70000002, "wk1Revenue": 18916107.35, "growth": 0.021573717712321635, "wk13Footfall": 41013, "wk1Footfall": 48348, "wk13Invoices": 2022, "wk1Invoices": 519, "wk13Conversion": 0.049301441006510134, "wk1Conversion": 0.010734673616281956, "conversionChange": -0.03856676739022818, "loan": 0.15207651827620539, "trade": 0.1670888213441405, "revSqFt": 3361.66826905989, "rag": "Amber", "growthScore": 54.31474354246433, "conversionScore": 11.43323260977182, "loanScore": 60.83060731048215, "tradeScore": 100, "revSqFtScore": 86.88642845261968, "riskScore": 65, "reScore": 58.9}, {"arm": "Karthik Lingesh", "stores": 7, "wk13Revenue": 51549524.56999998, "wk1Revenue": 50120375.85, "growth": -0.027723800208075848, "wk13Footfall": 58882, "wk1Footfall": 82283, "wk13Invoices": 4679, "wk1Invoices": 1192, "wk13Conversion": 0.07946401277130533, "wk1Conversion": 0.01448658896734441, "conversionChange": -0.06497742380396092, "loan": 0.18622455652158074, "trade": 0.21007363518884256, "revSqFt": 4850.421539310184, "rag": "Amber", "growthScore": 44.45523995838483, "conversionScore": 0, "loanScore": 74.4898226086323, "tradeScore": 100, "revSqFtScore": 100, "riskScore": 65, "reScore": 58.8}, {"arm": "Lalit Gupta", "stores": 4, "wk13Revenue": 25869914.350000016, "wk1Revenue": 24540657.55, "growth": -0.051382342516337505, "wk13Footfall": 45117, "wk1Footfall": 53762, "wk13Invoices": 2418, "wk1Invoices": 619, "wk13Conversion": 0.05359398896203205, "wk1Conversion": 0.011513708567389607, "conversionChange": -0.04208028039464245, "loan": 0.07284982174688057, "trade": 0.1540948275862069, "revSqFt": 5068.812878240215, "rag": "Amber", "growthScore": 39.7235314967325, "conversionScore": 7.91971960535755, "loanScore": 29.139928698752225, "tradeScore": 100, "revSqFtScore": 100, "riskScore": 65, "reScore": 52.4}, {"arm": "Mohammed Gouse", "stores": 5, "wk13Revenue": 43793638.20000002, "wk1Revenue": 34070719.010000005, "growth": -0.22201670355855496, "wk13Footfall": 83074, "wk1Footfall": 98399, "wk13Invoices": 4214, "wk1Invoices": 933, "wk13Conversion": 0.05072585887281219, "wk1Conversion": 0.009481803676866634, "conversionChange": -0.04124405519594555, "loan": 0.26885190760548394, "trade": 0.09859794776119403, "revSqFt": 3260.9487859036576, "rag": "Red", "growthScore": 5.596659288289004, "conversionScore": 8.755944804054444, "loanScore": 100, "tradeScore": 98.59794776119402, "revSqFtScore": 84.28321020899264, "riskScore": 35, "reScore": 48.4}, {"arm": "Mohit Kumar", "stores": 5, "wk13Revenue": 39283290.370000035, "wk1Revenue": 35088412.74, "growth": -0.1067852919266556, "wk13Footfall": 66733, "wk1Footfall": 79232, "wk13Invoices": 3347, "wk1Invoices": 847, "wk13Conversion": 0.0501550956797986, "wk1Conversion": 0.01069012520193861, "conversionChange": -0.03946497047785999, "loan": 0.038332273112807465, "trade": 0.18409803228467067, "revSqFt": 5895.299968245595, "rag": "Amber", "growthScore": 28.642941614668878, "conversionScore": 10.535029522140007, "loanScore": 15.332909245122986, "tradeScore": 100, "revSqFtScore": 100, "riskScore": 65, "reScore": 48.1}, {"arm": "Naveen Bandi", "stores": 7, "wk13Revenue": 42944290.97000002, "wk1Revenue": 32620097.95, "growth": -0.24040897606651104, "wk13Footfall": 44570, "wk1Footfall": 52737, "wk13Invoices": 4475, "wk1Invoices": 1058, "wk13Conversion": 0.10040385909804801, "wk1Conversion": 0.020061816182187078, "conversionChange": -0.08034204291586093, "loan": 0.3231659783525606, "trade": 0.10776131468955572, "revSqFt": 3881.1872387613075, "rag": "Amber", "growthScore": 1.9182047866977925, "conversionScore": 0, "loanScore": 100, "tradeScore": 100, "revSqFtScore": 100, "riskScore": 65, "reScore": 52}, {"arm": "Poornesh", "stores": 1, "wk13Revenue": 3398241.3, "wk1Revenue": 2033965.4, "growth": -0.40146528146779925, "wk13Footfall": 2163, "wk1Footfall": 2610, "wk13Invoices": 211, "wk1Invoices": 48, "wk13Conversion": 0.09754969949144707, "wk1Conversion": 0.01839080459770115, "conversionChange": -0.07915889489374592, "loan": 0.25925925925925924, "trade": 0, "revSqFt": 2480.4456097560974, "rag": "Amber", "growthScore": 0, "conversionScore": 0, "loanScore": 100, "tradeScore": 0, "revSqFtScore": 64.1101508992612, "riskScore": 65, "reScore": 34.3}, {"arm": "Sahil Khatuja", "stores": 7, "wk13Revenue": 20954277.530000005, "wk1Revenue": 26606069.45, "growth": 0.26972019970186933, "wk13Footfall": 32945, "wk1Footfall": 39911, "wk13Invoices": 2248, "wk1Invoices": 678, "wk13Conversion": 0.06823493701623919, "wk1Conversion": 0.016987797850216733, "conversionChange": -0.05124713916602246, "loan": 0.18279229385640705, "trade": 0.10082748105396189, "revSqFt": 2663.536835519071, "rag": "Amber", "growthScore": 100, "conversionScore": 0, "loanScore": 73.11691754256282, "tradeScore": 100, "revSqFtScore": 68.8423675888056, "riskScore": 65, "reScore": 66.2}, {"arm": "Srinivas Vennela", "stores": 4, "wk13Revenue": 24598537.850000016, "wk1Revenue": 21309625.450000003, "growth": -0.1337035729544393, "wk13Footfall": 23324, "wk1Footfall": 27538, "wk13Invoices": 2216, "wk1Invoices": 510, "wk13Conversion": 0.09500943234436632, "wk1Conversion": 0.018519863461398795, "conversionChange": -0.07648956888296753, "loan": 0.30727045290944544, "trade": 0.09196916471506636, "revSqFt": 3655.7943815405733, "rag": "Amber", "growthScore": 23.25928540911214, "conversionScore": 0, "loanScore": 100, "tradeScore": 91.96916471506636, "revSqFtScore": 94.48847760878071, "riskScore": 65, "reScore": 55.4}, {"arm": "Stalin Tadikamalla", "stores": 3, "wk13Revenue": 11709854.550000008, "wk1Revenue": 8098404.39, "growth": -0.30841118859157873, "wk13Footfall": 15768, "wk1Footfall": 19001, "wk13Invoices": 1183, "wk1Invoices": 271, "wk13Conversion": 0.07502536783358701, "wk1Conversion": 0.01426240724172412, "conversionChange": -0.0607629605918629, "loan": 0.42196816030487433, "trade": 0.09983619983619985, "revSqFt": 3233.2831836148043, "rag": "Amber", "growthScore": 0, "conversionScore": 0, "loanScore": 100, "tradeScore": 99.83619983619985, "revSqFtScore": 83.5681588768928, "riskScore": 65, "reScore": 48.2}, {"arm": "Subhojit Kundu", "stores": 3, "wk13Revenue": 11632082.900000006, "wk1Revenue": 8718634.680000002, "growth": -0.25046659700129914, "wk13Footfall": 17107, "wk1Footfall": 20789, "wk13Invoices": 965, "wk1Invoices": 249, "wk13Conversion": 0.05640965686561057, "wk1Conversion": 0.011977488094665449, "conversionChange": -0.04443216877094512, "loan": 0.09130571249215318, "trade": 0.14521072796934867, "revSqFt": 2462.334692724808, "rag": "Amber", "growthScore": 0, "conversionScore": 5.567831229054882, "loanScore": 36.52228499686127, "tradeScore": 100, "revSqFtScore": 63.64205209506524, "riskScore": 65, "reScore": 35.8}, {"arm": "Syed Yusuf", "stores": 5, "wk13Revenue": 31740965.210000016, "wk1Revenue": 24901860.98, "growth": -0.21546617075921026, "wk13Footfall": 34799, "wk1Footfall": 41877, "wk13Invoices": 3067, "wk1Invoices": 678, "wk13Conversion": 0.08813471651484238, "wk1Conversion": 0.016190271509420446, "conversionChange": -0.07194444500542194, "loan": 0.439703941501818, "trade": 0.08118996059020539, "revSqFt": 3701.2278507728893, "rag": "Amber", "growthScore": 6.906765848157946, "conversionScore": 0, "loanScore": 100, "tradeScore": 81.18996059020539, "revSqFtScore": 95.66276119593307, "riskScore": 65, "reScore": 50.5}, {"arm": "V Abhilash", "stores": 5, "wk13Revenue": 39003130.45000007, "wk1Revenue": 34597722.230000004, "growth": -0.11295011885385876, "wk13Footfall": 54833, "wk1Footfall": 64491, "wk13Invoices": 4153, "wk1Invoices": 990, "wk13Conversion": 0.07573906224353948, "wk1Conversion": 0.015350979206400894, "conversionChange": -0.06038808303713858, "loan": 0.2041382429545065, "trade": 0.14560892678161358, "revSqFt": 6556.075613961951, "rag": "Amber", "growthScore": 27.409976229228246, "conversionScore": 0, "loanScore": 81.6552971818026, "tradeScore": 100, "revSqFtScore": 100, "riskScore": 65, "reScore": 55.6}, {"arm": "Vishal Nadar", "stores": 4, "wk13Revenue": 17981703.650000013, "wk1Revenue": 21472470.799999997, "growth": 0.19412883328215572, "wk13Footfall": 25089, "wk1Footfall": 29881, "wk13Invoices": 1778, "wk1Invoices": 429, "wk13Conversion": 0.07086771094902149, "wk1Conversion": 0.014356949231953416, "conversionChange": -0.05651076171706807, "loan": 0.17783103900360536, "trade": 0.11242437548790007, "revSqFt": 3645.333220154828, "rag": "Amber", "growthScore": 88.82576665643114, "conversionScore": 0, "loanScore": 71.13241560144215, "tradeScore": 100, "revSqFtScore": 94.21809609652993, "riskScore": 65, "reScore": 68.2}]};
+const money=v=>v>=1e7?`₹${(v/1e7).toFixed(2)} Cr`:v>=1e5?`₹${(v/1e5).toFixed(1)} L`:`₹${Math.round(v).toLocaleString()}`;
+const pct=v=>`${(v*100).toFixed(1)}%`,pts=v=>`${(v*100).toFixed(1)} pts`;
+const p=[...document.querySelectorAll('.page')],b=[...document.querySelectorAll('.menu button')];
+function show(id){p.forEach(x=>x.classList.toggle('active',x.id===id));b.forEach(x=>x.classList.toggle('active',x.dataset.id===id));window.scrollTo(0,0)}b.forEach(x=>x.onclick=()=>show(x.dataset.id));
+
+const storeSelect=document.getElementById('storeSelect'),storeMetric=document.getElementById('storeMetric');
+function renderStore(){
+ const s=DATA.stores[Number(storeSelect.value)]||DATA.stores[0],m=storeMetric.value;
+ const all=[['ARM',s.arm],['Region',s.region],['Wk3 Revenue',money(s.wk1Revenue)],['Growth',pct(s.growth)],['Conversion',pct(s.wk1Conversion)],['Conversion Change',pts(s.conversionChange)],['Loan Attach',pct(s.wk1Loan)],['Trade-in',pct(s.wk1Trade)],['Revenue/Sq Ft',money(s.wk1RevSqFt)],['RAG',s.rag],['RE Score',s.reScore.toFixed(1)]];
+ const filter={revenue:['Wk3 Revenue','Growth','Revenue/Sq Ft'],conversion:['Conversion','Conversion Change'],loan:['Loan Attach'],trade:['Trade-in'],re:['RE Score','RAG']}[m];
+ const items=m==='summary'?all:all.filter(x=>filter.includes(x[0]));
+ document.getElementById('storeMetrics').innerHTML=items.map(x=>`<div class='metric'><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+ document.getElementById('storeProfile').innerHTML=`<div class='metric-grid'>
+<div class='metric'><span>Growth Score</span><b>${Math.max(0,Math.min(100,50+s.growth*50)).toFixed(1)}</b></div>
+<div class='metric'><span>Conversion Score</span><b>${Math.min(100,s.wk1Conversion*1000).toFixed(1)}</b></div>
+<div class='metric'><span>Loan Score</span><b>${Math.min(100,s.wk1Loan/0.25*100).toFixed(1)}</b></div>
+<div class='metric'><span>Trade-in Score</span><b>${Math.min(100,s.wk1Trade/0.10*100).toFixed(1)}</b></div>
+<div class='metric'><span>Productivity Score</span><b>${Math.min(100,s.wk1RevSqFt/100).toFixed(1)}</b></div>
+<div class='metric'><span>RE Score</span><b>${s.reScore.toFixed(1)}</b></div>
+</div>`;
+document.getElementById('storeChart').innerHTML=`<div class='metric-grid'><div class='metric'><span>Wk2 Revenue</span><b>${money(s.wk13Revenue)}</b></div><div class='metric'><span>Wk3 Revenue</span><b>${money(s.wk1Revenue)}</b></div><div class='metric'><span>Growth</span><b>${pct(s.growth)}</b></div></div>`;
+ const actionParts=[];
+if(s.growth<0) actionParts.push(`Recover revenue momentum (${pct(s.growth)} growth).`);
+if(s.wk1Conversion<0.10) actionParts.push(`Improve conversion from ${pct(s.wk1Conversion)} toward 10%+.`);
+if(s.wk1Loan<0.25) actionParts.push(`Lift loan attach from ${pct(s.wk1Loan)} toward 25%.`);
+if(s.wk1Trade<0.10) actionParts.push(`Strengthen trade-in from ${pct(s.wk1Trade)} toward 10%.`);
+if(s.reScore<60) actionParts.push(`Retail Excellence score ${s.reScore.toFixed(1)} needs recovery.`);
+if(!actionParts.length) actionParts.push('Sustain current performance and replicate best practices.');
+document.getElementById('storeAction').innerHTML=`<h3>${s.store}</h3><p>${actionParts.join(' ')}</p>`;
+}
+storeSelect.onchange=renderStore;storeMetric.onchange=renderStore;
+const storeArmFilter=document.getElementById('storeArmFilter');
+function applyStoreArmFilter(){
+  const arm=storeArmFilter.value;
+  const options=DATA.stores.map((s,i)=>({s,i})).filter(x=>arm==='All'||x.s.arm===arm);
+  storeSelect.innerHTML=options.map(x=>`<option value="${x.i}">${x.s.store}</option>`).join('');
+  renderStore();
+}
+storeArmFilter.onchange=applyStoreArmFilter;
+applyStoreArmFilter();
+
+const armSelect=document.getElementById('armSelect'),armMetric=document.getElementById('armMetric');
+function renderArm(){
+ const a=DATA.arms[Number(armSelect.value)]||DATA.arms[0],m=armMetric.value;
+ const all=[['Stores',a.stores],['Wk3 Revenue',money(a.wk1Revenue)],['Growth',pct(a.growth)],['Conversion',pct(a.wk1Conversion)],['Loan Attach',pct(a.loan)],['Trade-in',pct(a.trade)],['Revenue/Sq Ft',money(a.revSqFt)],['RAG',a.rag],['RE Score',a.reScore.toFixed(1)]];
+ const filter={revenue:['Wk3 Revenue','Growth','Revenue/Sq Ft'],conversion:['Conversion'],loan:['Loan Attach'],trade:['Trade-in'],re:['RE Score','RAG']}[m];
+ const items=m==='summary'?all:all.filter(x=>filter.includes(x[0]));
+ document.getElementById('armMetrics').innerHTML=items.map(x=>`<div class='metric'><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+ const under=DATA.stores.filter(s=>s.arm===a.arm).sort((x,y)=>y.wk1Revenue-x.wk1Revenue).slice(0,8);
+ document.getElementById('armStores').innerHTML=`<div class='arm-store-list'>`+under.map(s=>`<div class='arm-store-row'><span>${s.store}</span><b>${money(s.wk1Revenue)}</b><span class='${s.growth>=0?'up':'down'}'>${pct(s.growth)}</span></div>`).join('')+`</div>`;
+ const armActions=[];
+if(a.growth<0) armActions.push(`Recover ARM revenue momentum (${pct(a.growth)} growth).`);
+if(a.wk1Conversion<0.10) armActions.push(`Improve ARM conversion from ${pct(a.wk1Conversion)} toward 10%+.`);
+if(a.loan<0.25) armActions.push(`Raise loan attach from ${pct(a.loan)} toward 25%.`);
+if(a.trade<0.10) armActions.push(`Improve trade-in from ${pct(a.trade)} toward 10%.`);
+if(a.reScore<60) armActions.push(`Retail Excellence score ${a.reScore.toFixed(1)} requires coaching focus.`);
+if(!armActions.length) armActions.push('Sustain momentum and replicate best-performing store practices across the ARM.');
+document.getElementById('armAction').innerHTML=`<h3>${a.arm}</h3><p>${armActions.join(' ')}</p>`;
+document.getElementById('armProfile').innerHTML=`<div class='metric-grid'><div class='metric'><span>Growth Score</span><b>${a.growthScore.toFixed(1)}</b></div><div class='metric'><span>Conversion Score</span><b>${a.conversionScore.toFixed(1)}</b></div><div class='metric'><span>Loan Score</span><b>${a.loanScore.toFixed(1)}</b></div><div class='metric'><span>Trade-in Score</span><b>${a.tradeScore.toFixed(1)}</b></div><div class='metric'><span>Productivity Score</span><b>${a.revSqFtScore.toFixed(1)}</b></div><div class='metric'><span>Risk Score</span><b>${a.riskScore.toFixed(1)}</b></div></div>`;
+}
+armSelect.onchange=renderArm;armMetric.onchange=renderArm;
+const armNameFilter=document.getElementById('armNameFilter');
+function applyArmNameFilter(){
+  const arm=armNameFilter.value;
+  const options=DATA.arms.map((a,i)=>({a,i})).filter(x=>arm==='All'||x.a.arm===arm);
+  armSelect.innerHTML=options.map(x=>`<option value="${x.i}">${x.a.arm}</option>`).join('');
+  renderArm();
+}
+armNameFilter.onchange=applyArmNameFilter;
+applyArmNameFilter();
+</script></body></html>
