@@ -20,3 +20,4 @@ The dashboard is a static, source-backed snapshot. Refresh the embedded dataset 
 - `retail-metrics.js` defines reusable growth, percentage-point, run-rate, projection, and reconciliation formulas.
 - `METRIC_DICTIONARY.md` documents the standard business definitions.
 - `npm test` validates both the HTML contract and the shared formula contract.
+- The responsive executive UI layer improves hierarchy, navigation, KPI cards, comparison tables, and accessible focus behavior without altering business logic.
