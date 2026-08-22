@@ -7,6 +7,13 @@ globalThis.DASHBOARD_CONFIG = Object.freeze({
     comparablePeriod: "Wk6",
     periodUnit: "week"
   }),
+  governance: Object.freeze({
+    source: "JAS weekly comparison source workbook",
+    dataThrough: "Wk7",
+    published: "22 Aug 2026",
+    expectedStores: 69,
+    expectedArms: 15
+  }),
   benchmarks: Object.freeze({ loanAttachPct: 25, tradeInPct: 10 }),
   dataClassification: "Internal business reporting"
 });
